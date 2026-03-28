@@ -7,6 +7,8 @@ import { frontmatter as fm1, toc as t1 } from '/Users/JoeWright/workspace/mobile
 import { demoIndex as dmi1 } from '/Users/JoeWright/workspace/mobile-kit/docs/index.md?type=demo-index';
 import { frontmatter as fm2, toc as t2 } from '/Users/JoeWright/workspace/mobile-kit/src/components/button/index.md?type=frontmatter';
 import { demoIndex as dmi2 } from '/Users/JoeWright/workspace/mobile-kit/src/components/button/index.md?type=demo-index';
+import { frontmatter as fm3, toc as t3 } from '/Users/JoeWright/workspace/mobile-kit/src/components/popup/index.md?type=frontmatter';
+import { demoIndex as dmi3 } from '/Users/JoeWright/workspace/mobile-kit/src/components/popup/index.md?type=demo-index';
 
 export const filesMeta = {
   'docs/guide': {
@@ -26,6 +28,12 @@ export const filesMeta = {
     toc: t2,
     demoIndex: dmi2,
     textGetter: () => import(/* webpackChunkName: "meta__components" */'/Users/JoeWright/workspace/mobile-kit/src/components/button/index.md?type=text'),
+  },
+  'components/popup/index': {
+    frontmatter: fm3,
+    toc: t3,
+    demoIndex: dmi3,
+    textGetter: () => import(/* webpackChunkName: "meta__components" */'/Users/JoeWright/workspace/mobile-kit/src/components/popup/index.md?type=text'),
   },
 }
 

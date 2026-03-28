@@ -31,6 +31,7 @@
       "@types/react": "^18.3.12",
       "@types/react-dom": "^18.3.1",
       "dumi": "^2.4.15",
+      "dumi-theme-mobile": "^2.3.5",
       "father": "^4.5.8",
       "react": "^18.3.1",
       "react-dom": "^18.3.1",
@@ -63,7 +64,7 @@
       "config": {},
       "time": {
         "hooks": {},
-        "register": 9
+        "register": 30
       },
       "enableBy": "register"
     },
@@ -76,7 +77,7 @@
       "config": {},
       "time": {
         "hooks": {},
-        "register": 3
+        "register": 6
       },
       "enableBy": "register"
     },
@@ -93,7 +94,7 @@
             2
           ]
         },
-        "register": 5
+        "register": 8
       },
       "enableBy": "register"
     },
@@ -137,7 +138,7 @@
       "time": {
         "hooks": {
           "modifyAppData": [
-            16
+            21
           ]
         },
         "register": 38
@@ -170,7 +171,7 @@
             0
           ],
           "onCheck": [
-            0
+            1
           ]
         },
         "register": 2
@@ -190,7 +191,7 @@
             0
           ]
         },
-        "register": 1
+        "register": 2
       },
       "enableBy": "register"
     },
@@ -220,7 +221,7 @@
             0
           ]
         },
-        "register": 13
+        "register": 20
       },
       "enableBy": "register"
     },
@@ -1072,7 +1073,7 @@
       "config": {},
       "time": {
         "hooks": {},
-        "register": 2
+        "register": 1
       },
       "enableBy": "config"
     },
@@ -1086,7 +1087,7 @@
       "time": {
         "hooks": {
           "onStart": [
-            1
+            0
           ]
         },
         "register": 1
@@ -1115,7 +1116,7 @@
       "config": {},
       "time": {
         "hooks": {},
-        "register": 129
+        "register": 135
       },
       "enableBy": "register"
     },
@@ -1128,7 +1129,7 @@
       "config": {},
       "time": {
         "hooks": {},
-        "register": 43
+        "register": 66
       },
       "enableBy": "config"
     },
@@ -1145,7 +1146,7 @@
             0
           ]
         },
-        "register": 4
+        "register": 3
       },
       "enableBy": "config"
     },
@@ -1201,7 +1202,7 @@
       "config": {},
       "time": {
         "hooks": {},
-        "register": 49
+        "register": 52
       }
     },
     "./node_modules/.pnpm/@umijs+preset-umi@4.6.36_@types+node@25.5.0_@types+react@18.3.28_lightningcss@1.22.1_re_f8655ec2743dc74a411f74d967660fb1/node_modules/@umijs/preset-umi/dist/features/mpa/mpa": {
@@ -1226,7 +1227,7 @@
       "config": {},
       "time": {
         "hooks": {},
-        "register": 2
+        "register": 1
       }
     },
     "./node_modules/.pnpm/@umijs+preset-umi@4.6.36_@types+node@25.5.0_@types+react@18.3.28_lightningcss@1.22.1_re_f8655ec2743dc74a411f74d967660fb1/node_modules/@umijs/preset-umi/dist/features/overrides/overrides": {
@@ -1268,7 +1269,7 @@
             1
           ]
         },
-        "register": 3
+        "register": 4
       }
     },
     "./node_modules/.pnpm/@umijs+preset-umi@4.6.36_@types+node@25.5.0_@types+react@18.3.28_lightningcss@1.22.1_re_f8655ec2743dc74a411f74d967660fb1/node_modules/@umijs/preset-umi/dist/features/polyfill/publicPathPolyfill": {
@@ -1293,7 +1294,7 @@
       "config": {},
       "time": {
         "hooks": {},
-        "register": 3
+        "register": 5
       },
       "enableBy": "register"
     },
@@ -1332,7 +1333,7 @@
       "config": {},
       "time": {
         "hooks": {},
-        "register": 1
+        "register": 2
       },
       "enableBy": "register"
     },
@@ -1345,7 +1346,7 @@
       "config": {},
       "time": {
         "hooks": {},
-        "register": 9
+        "register": 7
       },
       "enableBy": "register"
     },
@@ -1396,7 +1397,7 @@
       "config": {},
       "time": {
         "hooks": {},
-        "register": 5
+        "register": 7
       },
       "enableBy": "register"
     },
@@ -1422,7 +1423,7 @@
       "config": {},
       "time": {
         "hooks": {},
-        "register": 5
+        "register": 6
       },
       "enableBy": "config"
     },
@@ -1448,7 +1449,7 @@
       "config": {},
       "time": {
         "hooks": {},
-        "register": 9
+        "register": 12
       }
     },
     "./node_modules/.pnpm/@umijs+preset-umi@4.6.36_@types+node@25.5.0_@types+react@18.3.28_lightningcss@1.22.1_re_f8655ec2743dc74a411f74d967660fb1/node_modules/@umijs/preset-umi/dist/features/monorepo/redirect": {
@@ -1460,7 +1461,7 @@
       "config": {},
       "time": {
         "hooks": {},
-        "register": 32
+        "register": 36
       },
       "enableBy": "config"
     },
@@ -1473,7 +1474,7 @@
       "config": {},
       "time": {
         "hooks": {},
-        "register": 2
+        "register": 3
       }
     },
     "./node_modules/.pnpm/@umijs+preset-umi@4.6.36_@types+node@25.5.0_@types+react@18.3.28_lightningcss@1.22.1_re_f8655ec2743dc74a411f74d967660fb1/node_modules/@umijs/preset-umi/dist/features/clickToComponent/clickToComponent": {
@@ -1523,7 +1524,7 @@
       "config": {},
       "time": {
         "hooks": {},
-        "register": 2
+        "register": 3
       }
     },
     "./node_modules/.pnpm/@umijs+preset-umi@4.6.36_@types+node@25.5.0_@types+react@18.3.28_lightningcss@1.22.1_re_f8655ec2743dc74a411f74d967660fb1/node_modules/@umijs/preset-umi/dist/features/swc/swc": {
@@ -1552,7 +1553,7 @@
       "config": {},
       "time": {
         "hooks": {},
-        "register": 6
+        "register": 7
       }
     },
     "./node_modules/.pnpm/@umijs+preset-umi@4.6.36_@types+node@25.5.0_@types+react@18.3.28_lightningcss@1.22.1_re_f8655ec2743dc74a411f74d967660fb1/node_modules/@umijs/preset-umi/dist/features/mako/mako": {
@@ -1564,7 +1565,7 @@
       "config": {},
       "time": {
         "hooks": {},
-        "register": 2
+        "register": 1
       },
       "enableBy": "config"
     },
@@ -1577,7 +1578,7 @@
       "config": {},
       "time": {
         "hooks": {},
-        "register": 1
+        "register": 2
       }
     },
     "./node_modules/.pnpm/@umijs+preset-umi@4.6.36_@types+node@25.5.0_@types+react@18.3.28_lightningcss@1.22.1_re_f8655ec2743dc74a411f74d967660fb1/node_modules/@umijs/preset-umi/dist/features/hmrGuardian/hmrGuardian": {
@@ -1601,7 +1602,7 @@
       "config": {},
       "time": {
         "hooks": {},
-        "register": 43
+        "register": 44
       }
     },
     "./node_modules/.pnpm/@umijs+preset-umi@4.6.36_@types+node@25.5.0_@types+react@18.3.28_lightningcss@1.22.1_re_f8655ec2743dc74a411f74d967660fb1/node_modules/@umijs/preset-umi/dist/features/forget/forget": {
@@ -1626,7 +1627,7 @@
       "config": {},
       "time": {
         "hooks": {},
-        "register": 2
+        "register": 3
       },
       "enableBy": "register"
     },
@@ -1639,7 +1640,7 @@
       "config": {},
       "time": {
         "hooks": {},
-        "register": 8
+        "register": 9
       },
       "enableBy": "register"
     },
@@ -1652,7 +1653,7 @@
       "config": {},
       "time": {
         "hooks": {},
-        "register": 58
+        "register": 61
       },
       "enableBy": "register"
     },
@@ -1665,7 +1666,7 @@
       "config": {},
       "time": {
         "hooks": {},
-        "register": 42
+        "register": 64
       }
     },
     "./node_modules/.pnpm/@umijs+preset-umi@4.6.36_@types+node@25.5.0_@types+react@18.3.28_lightningcss@1.22.1_re_f8655ec2743dc74a411f74d967660fb1/node_modules/@umijs/preset-umi/dist/commands/help": {
@@ -1729,7 +1730,7 @@
       "config": {},
       "time": {
         "hooks": {},
-        "register": 2
+        "register": 1
       },
       "enableBy": "register"
     },
@@ -1755,7 +1756,7 @@
       "config": {},
       "time": {
         "hooks": {},
-        "register": 1
+        "register": 0
       },
       "enableBy": "register"
     },
@@ -1820,7 +1821,7 @@
       "config": {},
       "time": {
         "hooks": {},
-        "register": 2
+        "register": 0
       },
       "enableBy": "register"
     },
@@ -1859,7 +1860,7 @@
       "config": {},
       "time": {
         "hooks": {},
-        "register": 1
+        "register": 6
       },
       "enableBy": "register"
     },
@@ -1872,7 +1873,7 @@
       "config": {},
       "time": {
         "hooks": {},
-        "register": 8
+        "register": 1
       },
       "enableBy": "register"
     },
@@ -1898,7 +1899,7 @@
       "config": {},
       "time": {
         "hooks": {},
-        "register": 2
+        "register": 1
       },
       "enableBy": "register"
     },
@@ -1911,7 +1912,7 @@
       "config": {},
       "time": {
         "hooks": {},
-        "register": 3
+        "register": 2
       },
       "enableBy": "register"
     },
@@ -1924,7 +1925,7 @@
       "config": {},
       "time": {
         "hooks": {},
-        "register": 2
+        "register": 1
       },
       "enableBy": "register"
     },
@@ -1937,7 +1938,7 @@
       "config": {},
       "time": {
         "hooks": {},
-        "register": 1
+        "register": 2
       },
       "enableBy": "register"
     },
@@ -1950,7 +1951,7 @@
       "config": {},
       "time": {
         "hooks": {},
-        "register": 1
+        "register": 0
       },
       "enableBy": "register"
     },
@@ -2067,10 +2068,10 @@
       "time": {
         "hooks": {
           "modifyConfig": [
-            883
+            1232
           ]
         },
-        "register": 2
+        "register": 1
       }
     },
     "./node_modules/.pnpm/dumi@2.4.23_@babel+core@7.29.0_@swc+helpers@0.5.15_@types+node@25.5.0_@types+react@18.3_23089b9682618f24422562e44a06a82c/node_modules/dumi/dist/features/derivative": {
@@ -2153,10 +2154,10 @@
           "modifyConfig": [
             0,
             0,
-            2
+            1
           ]
         },
-        "register": 20
+        "register": 21
       },
       "enableBy": "register"
     },
@@ -2176,10 +2177,10 @@
             0
           ],
           "modifyRoutes": [
-            6
+            8
           ]
         },
-        "register": 5
+        "register": 7
       },
       "enableBy": "register"
     },
@@ -2196,7 +2197,7 @@
             0
           ]
         },
-        "register": 2
+        "register": 4
       },
       "enableBy": "register"
     },
@@ -2213,10 +2214,10 @@
             0
           ],
           "modifyRoutes": [
-            0
+            1
           ]
         },
-        "register": 1
+        "register": 0
       },
       "enableBy": "register"
     },
@@ -2231,14 +2232,14 @@
         "hooks": {
           "modifyConfig": [
             0,
-            0
+            1
           ],
           "modifyAppData": [
             1,
-            6
+            7
           ]
         },
-        "register": 47
+        "register": 60
       },
       "enableBy": "register"
     },
@@ -2292,7 +2293,7 @@
       "config": {},
       "time": {
         "hooks": {},
-        "register": 0
+        "register": 1
       }
     },
     "./node_modules/.pnpm/dumi@2.4.23_@babel+core@7.29.0_@swc+helpers@0.5.15_@types+node@25.5.0_@types+react@18.3_23089b9682618f24422562e44a06a82c/node_modules/dumi/dist/features/exportStatic": {
@@ -2320,7 +2321,7 @@
       "config": {},
       "time": {
         "hooks": {},
-        "register": 18
+        "register": 20
       }
     },
     "./node_modules/.pnpm/dumi@2.4.23_@babel+core@7.29.0_@swc+helpers@0.5.15_@types+node@25.5.0_@types+react@18.3_23089b9682618f24422562e44a06a82c/node_modules/dumi/dist/features/html2sketch": {
@@ -2353,10 +2354,15 @@
   "presets": [],
   "name": "build",
   "args": {
-    "_": []
+    "_": [],
+    "store-dir": "/Users/JoeWright/Library/pnpm/store/v10",
+    "storeDir": "/Users/JoeWright/Library/pnpm/store/v10"
   },
   "userConfig": {
     "outputPath": "docs-dist",
+    "headScripts": [
+      "/mobile-redirect.js"
+    ],
     "resolve": {
       "atomDirs": [
         {
@@ -2368,6 +2374,7 @@
     "themeConfig": {
       "name": "Mobile Kit",
       "logo": false,
+      "deviceWidth": 375,
       "nav": [
         {
           "title": "指南",
@@ -2376,6 +2383,10 @@
         {
           "title": "组件",
           "link": "/components/button"
+        },
+        {
+          "title": "移动预览",
+          "link": "/gallery"
         }
       ]
     },
@@ -2415,7 +2426,6 @@
       "@joewrights/mobile-kit/es": "/Users/JoeWright/workspace/mobile-kit/src",
       "@joewrights/mobile-kit/lib": "/Users/JoeWright/workspace/mobile-kit/src",
       "dumi$": "@@/dumi/exports",
-      "dumi/theme/builtins/Previewer": "/Users/JoeWright/workspace/mobile-kit/.dumi/theme/builtins/Previewer/index.tsx",
       "dumi/theme": "dumi/theme-original",
       "dumi/theme-original": "/Users/JoeWright/workspace/mobile-kit/.dumi/tmp-production/dumi/theme",
       "dumi/theme-default": "/Users/JoeWright/workspace/mobile-kit/node_modules/.pnpm/dumi@2.4.23_@babel+core@7.29.0_@swc+helpers@0.5.15_@types+node@25.5.0_@types+react@18.3_23089b9682618f24422562e44a06a82c/node_modules/dumi/theme-default"
@@ -2430,6 +2440,7 @@
       "lastUpdated": true,
       "name": "Mobile Kit",
       "logo": false,
+      "deviceWidth": 375,
       "nav": [
         {
           "title": "指南",
@@ -2438,6 +2449,10 @@
         {
           "title": "组件",
           "link": "/components/button"
+        },
+        {
+          "title": "移动预览",
+          "link": "/gallery"
         }
       ]
     },
@@ -2471,6 +2486,9 @@
     "exportStatic": {},
     "esbuildMinifyIIFE": true,
     "outputPath": "docs-dist",
+    "headScripts": [
+      "/mobile-redirect.js"
+    ],
     "styles": [
       "\n      :root {\n        --adm-color-primary: #1677ff;\n      }\n      .dumi-default-header {\n        border-bottom: 1px solid #f0f0f0;\n        background: #fff;\n      }\n      .dumi-default-hero {\n        background: linear-gradient(180deg, #f7faff 0%, #ffffff 100%);\n      }\n    "
     ],
@@ -2514,6 +2532,14 @@
       "absPath": "/",
       "isLayout": true
     },
+    "DemoLayout": {
+      "id": "DemoLayout",
+      "path": "/",
+      "file": "/Users/JoeWright/workspace/mobile-kit/node_modules/dumi-theme-mobile/dist/layouts/DemoLayout.js",
+      "parentId": "dumi-context-layout",
+      "absPath": "/",
+      "isLayout": true
+    },
     "docs/guide": {
       "path": "guide",
       "id": "docs/guide",
@@ -2538,11 +2564,21 @@
         "_atom_route": true
       }
     },
+    "components/popup/index": {
+      "id": "components/popup/index",
+      "path": "components/popup",
+      "absPath": "/components/popup",
+      "parentId": "DocLayout",
+      "file": "/Users/JoeWright/workspace/mobile-kit/src/components/popup/index.md",
+      "meta": {
+        "_atom_route": true
+      }
+    },
     "demo-render": {
       "id": "demo-render",
       "path": "~demos/:id",
       "absPath": "/~demos/:id",
-      "parentId": "dumi-context-layout",
+      "parentId": "DemoLayout",
       "file": "/Users/JoeWright/workspace/mobile-kit/node_modules/.pnpm/dumi@2.4.23_@babel+core@7.29.0_@swc+helpers@0.5.15_@types+node@25.5.0_@types+react@18.3_23089b9682618f24422562e44a06a82c/node_modules/dumi/dist/client/pages/Demo/index.js",
       "prerender": false
     }

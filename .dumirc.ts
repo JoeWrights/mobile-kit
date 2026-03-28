@@ -2,15 +2,18 @@ import { defineConfig } from 'dumi';
 
 export default defineConfig({
   outputPath: 'docs-dist',
+  headScripts: ['/mobile-redirect.js'],
   resolve: {
     atomDirs: [{ type: 'component', dir: 'src/components' }],
   },
   themeConfig: {
     name: 'Mobile Kit',
     logo: false,
+    deviceWidth: 375,
     nav: [
       { title: '指南', link: '/guide' },
       { title: '组件', link: '/components/button' },
+      { title: '移动预览', link: '/gallery' },
     ],
   },
   alias: {

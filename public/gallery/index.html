@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mobile Kit Gallery</title>
+    <link rel="stylesheet" href="/gallery/styles.css" />
+  </head>
+  <body>
+    <div class="g-shell">
+      <header class="g-header">Mobile Kit</header>
+      <main class="g-body">
+        <input id="search" class="g-search" placeholder="搜索组件" />
+        <div class="g-group-title">通用</div>
+        <div id="list" class="g-list"></div>
+      </main>
+    </div>
+
+    <script>
+      const components = [
+        { key: 'button', title: 'Button 按钮', route: '/gallery/button' },
+        { key: 'popup', title: 'Popup 弹出层', route: '/gallery/popup' },
+      ];
+
+      const listEl = document.getElementById('list');
+      const searchEl = document.getElementById('search');
+
+      function render(list) {
+        if (!list.length) {
+          listEl.innerHTML = '<div class="g-empty">未找到匹配组件</div>';
+          return;
+        }
+        listEl.innerHTML = list
+          .map(
+            (item) =>
+              `<a class="g-item" href="${item.route}"><span>${item.title}</span><span class="g-arrow">›</span></a>`,
+          )
+          .join('');
+      }
+
+      render(components);
+
+      searchEl.addEventListener('input', (e) => {
+        const keyword = String(e.target.value || '')
+          .trim()
+          .toLowerCase();
+        if (!keyword) {
+          render(components);
+          return;
+        }
+        render(
+          components.filter(
+            (item) => item.key.includes(keyword) || item.title.toLowerCase().includes(keyword),
+          ),
+        );
+      });
+    </script>
+  </body>
+</html>

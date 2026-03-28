@@ -17,7 +17,7 @@ const entryExports = {
 const pkg = {"name":"@joewrights/mobile-kit","description":"React mobile component library based on antd-mobile","version":"0.1.0","license":"MIT"};
 const historyType = "browser";
 const hostname = undefined;
-const themeConfig = {"footer":"Copyright © 2026 | Powered by <a href=\"https://d.umijs.org\" target=\"_blank\" rel=\"noreferrer\">dumi</a>","prefersColor":{"default":"light","switch":true},"nprogress":true,"lastUpdated":true,"name":"Mobile Kit","logo":false,"nav":[{"title":"指南","link":"/guide"},{"title":"组件","link":"/components/button"}]};
+const themeConfig = {"footer":"Copyright © 2026 | Powered by <a href=\"https://d.umijs.org\" target=\"_blank\" rel=\"noreferrer\">dumi</a>","prefersColor":{"default":"light","switch":true},"nprogress":true,"lastUpdated":true,"name":"Mobile Kit","logo":false,"deviceWidth":375,"nav":[{"title":"指南","link":"/guide"},{"title":"组件","link":"/components/button"},{"title":"移动预览","link":"/gallery"}]};
 const _2_level_nav_available = true;
 
 export default function DumiContextWrapper() {
