@@ -3,7 +3,7 @@ import { defineConfig } from 'dumi';
 export default defineConfig({
   outputPath: 'docs-dist',
   resolve: {
-    atomDirs: [{ type: 'component', dir: 'src' }],
+    atomDirs: [{ type: 'component', dir: 'src/components' }],
   },
   themeConfig: {
     name: 'Mobile Kit',
@@ -14,7 +14,7 @@ export default defineConfig({
     ],
   },
   alias: {
-    '@mobile-kit/ui': '/src',
+    '@joewrights/mobile-kit': '/src',
   },
   styles: [
     `

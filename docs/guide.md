@@ -3,13 +3,13 @@
 ## 安装
 
 ```bash
-pnpm add @mobile-kit/ui
+pnpm add @joewrights/mobile-kit
 ```
 
 ## 使用
 
 ```tsx
-import { Button } from '@mobile-kit/ui';
+import { Button } from '@joewrights/mobile-kit';
 
 export default () => {
   return <Button color='primary'>提交</Button>;
