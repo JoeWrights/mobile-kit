@@ -1,0 +1,7 @@
+node_modules
+.dumi
+dist
+es
+lib
+docs-dist
+.DS_Store
