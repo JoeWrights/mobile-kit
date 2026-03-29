@@ -4,3 +4,8 @@ es
 lib
 docs-dist
 .DS_Store
+
+# dumi generated artifacts
+.dumi/*
+!.dumi/theme/
+!.dumi/theme/**
