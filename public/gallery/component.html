@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gallery Component</title>
+    <link rel="stylesheet" href="/gallery/styles.css" />
+  </head>
+  <body>
+    <div class="g-shell">
+      <header class="g-header is-component">
+        <button id="back-btn" class="g-back" aria-label="返回">‹</button>
+        <div id="title" class="g-title">组件预览</div>
+        <button id="switch" class="g-switch">1 / 1</button>
+        <div id="menu" class="g-demo-menu" style="display: none"></div>
+      </header>
+      <main class="g-iframe-wrap">
+        <iframe id="frame" class="g-iframe"></iframe>
+      </main>
+    </div>
+
+    <script src="/gallery/data.js"></script>
+    <script>
+      const params = new URLSearchParams(window.location.search);
+      const componentKey = params.get('component') || 'button';
+      const components = window.GALLERY_COMPONENTS || [];
+      const component = components.find((item) => item.key === componentKey) || components[0];
+
+      const titleEl = document.getElementById('title');
+      const frame = document.getElementById('frame');
+      const switchBtn = document.getElementById('switch');
+      const backBtn = document.getElementById('back-btn');
+      const menu = document.getElementById('menu');
+      const demos = component?.demos || [];
+      let activeIndex = 0;
+
+      function navigate(route) {
+        if (window.parent && window.parent !== window) {
+          window.parent.postMessage({ type: 'mk-gallery-navigate', path: route }, window.location.origin);
+          return;
+        }
+        window.location.href = route;
+      }
+
+      if (!component || !demos.length) {
+        titleEl.textContent = '组件不存在';
+        switchBtn.style.display = 'none';
+        frame.src = '/gallery/index.html';
+      } else {
+        titleEl.textContent = component.title;
+        frame.src = demos[0].path;
+      }
+
+      function syncHeader() {
+        switchBtn.textContent = `${activeIndex + 1} / ${demos.length}`;
+      }
+
+      function renderMenu() {
+        menu.innerHTML = demos
+          .map((demo, index) => `<button data-index="${index}">${demo.title}</button>`)
+          .join('');
+      }
+
+      function changeDemo(index) {
+        activeIndex = index;
+        frame.src = demos[index].path;
+        syncHeader();
+      }
+
+      if (demos.length > 1) {
+        renderMenu();
+        syncHeader();
+      } else {
+        switchBtn.style.display = 'none';
+      }
+
+      backBtn.addEventListener('click', () => navigate('/gallery'));
+
+      switchBtn.addEventListener('click', () => {
+        menu.style.display = menu.style.display === 'none' ? 'block' : 'none';
+      });
+
+      menu.addEventListener('click', (e) => {
+        const btn = e.target.closest('button[data-index]');
+        if (!btn) return;
+        const next = Number(btn.dataset.index);
+        changeDemo(next);
+        menu.style.display = 'none';
+      });
+
+      document.addEventListener('click', (e) => {
+        if (!menu.contains(e.target) && e.target !== switchBtn) {
+          menu.style.display = 'none';
+        }
+      });
+    </script>
+  </body>
+</html>

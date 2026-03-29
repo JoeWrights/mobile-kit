@@ -16,14 +16,20 @@
       </main>
     </div>
 
+    <script src="/gallery/data.js"></script>
     <script>
-      const components = [
-        { key: 'button', title: 'Button 按钮', route: '/gallery/button' },
-        { key: 'popup', title: 'Popup 弹出层', route: '/gallery/popup' },
-      ];
+      const components = window.GALLERY_COMPONENTS || [];
 
       const listEl = document.getElementById('list');
       const searchEl = document.getElementById('search');
+
+      function navigate(route) {
+        if (window.parent && window.parent !== window) {
+          window.parent.postMessage({ type: 'mk-gallery-navigate', path: route }, window.location.origin);
+          return;
+        }
+        window.location.href = route;
+      }
 
       function render(list) {
         if (!list.length) {
@@ -33,12 +39,18 @@
         listEl.innerHTML = list
           .map(
             (item) =>
-              `<a class="g-item" href="${item.route}"><span>${item.title}</span><span class="g-arrow">›</span></a>`,
+              `<button class="g-item" data-route="${item.route}"><span>${item.title}</span><span class="g-arrow">›</span></button>`,
           )
           .join('');
       }
 
       render(components);
+
+      listEl.addEventListener('click', (e) => {
+        const item = e.target.closest('[data-route]');
+        if (!item) return;
+        navigate(item.getAttribute('data-route'));
+      });
 
       searchEl.addEventListener('input', (e) => {
         const keyword = String(e.target.value || '')
@@ -50,7 +62,8 @@
         }
         render(
           components.filter(
-            (item) => item.key.includes(keyword) || item.title.toLowerCase().includes(keyword),
+            (item) =>
+              item.key.toLowerCase().includes(keyword) || item.title.toLowerCase().includes(keyword),
           ),
         );
       });

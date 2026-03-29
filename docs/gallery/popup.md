@@ -5,6 +5,6 @@ mobile: false
 ---
 
 <iframe
-  src="/gallery/popup/index.html"
+  src="/gallery/component.html?component=popup"
   style="width:100%;height:calc(100vh - 120px);min-height:640px;border:0;display:block;"
 ></iframe>

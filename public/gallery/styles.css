@@ -154,10 +154,16 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  width: 100%;
   padding: 0 8px;
+  border: 0;
   border-bottom: 1px solid #f0f0f0;
+  background: #fff;
+  font-size: 17px;
+  text-align: left;
   color: var(--gallery-text);
   text-decoration: none;
+  cursor: pointer;
 }
 
 .g-item:last-child {
