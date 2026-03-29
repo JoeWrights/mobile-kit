@@ -13,8 +13,10 @@ import { frontmatter as fm4, toc as t4 } from '/Users/JoeWright/workspace/mobile
 import { demoIndex as dmi4 } from '/Users/JoeWright/workspace/mobile-kit/docs/index.md?type=demo-index';
 import { frontmatter as fm5, toc as t5 } from '/Users/JoeWright/workspace/mobile-kit/src/components/button/index.md?type=frontmatter';
 import { demoIndex as dmi5 } from '/Users/JoeWright/workspace/mobile-kit/src/components/button/index.md?type=demo-index';
-import { frontmatter as fm6, toc as t6 } from '/Users/JoeWright/workspace/mobile-kit/src/components/popup/index.md?type=frontmatter';
-import { demoIndex as dmi6 } from '/Users/JoeWright/workspace/mobile-kit/src/components/popup/index.md?type=demo-index';
+import { frontmatter as fm6, toc as t6 } from '/Users/JoeWright/workspace/mobile-kit/src/components/popup-container/index.md?type=frontmatter';
+import { demoIndex as dmi6 } from '/Users/JoeWright/workspace/mobile-kit/src/components/popup-container/index.md?type=demo-index';
+import { frontmatter as fm7, toc as t7 } from '/Users/JoeWright/workspace/mobile-kit/src/components/popup/index.md?type=frontmatter';
+import { demoIndex as dmi7 } from '/Users/JoeWright/workspace/mobile-kit/src/components/popup/index.md?type=demo-index';
 
 export const filesMeta = {
   'docs/gallery/button': {
@@ -53,10 +55,16 @@ export const filesMeta = {
     demoIndex: dmi5,
     textGetter: () => import(/* webpackChunkName: "meta__components" */'/Users/JoeWright/workspace/mobile-kit/src/components/button/index.md?type=text'),
   },
-  'components/popup/index': {
+  'components/popup-container/index': {
     frontmatter: fm6,
     toc: t6,
     demoIndex: dmi6,
+    textGetter: () => import(/* webpackChunkName: "meta__components" */'/Users/JoeWright/workspace/mobile-kit/src/components/popup-container/index.md?type=text'),
+  },
+  'components/popup/index': {
+    frontmatter: fm7,
+    toc: t7,
+    demoIndex: dmi7,
     textGetter: () => import(/* webpackChunkName: "meta__components" */'/Users/JoeWright/workspace/mobile-kit/src/components/popup/index.md?type=text'),
   },
 }
