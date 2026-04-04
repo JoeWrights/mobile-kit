@@ -1,8 +1,8 @@
-import React from "react"
-import { Space } from "antd-mobile"
 import { Button } from "@joewrights/mobile-kit"
+import { Space } from "antd-mobile"
+import React from "react"
 
-export default () => {
+const Rounded = () => {
     return (
         <Space direction="vertical" block>
             <Button color="primary" shape="rounded">
@@ -12,3 +12,5 @@ export default () => {
         </Space>
     )
 }
+
+export default Rounded

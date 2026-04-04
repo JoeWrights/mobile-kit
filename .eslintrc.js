@@ -1,3 +1,3 @@
 module.exports = {
-  extends: [require.resolve('@joewrights/presets/eslint')],
-};
+    extends: [require.resolve("@joewrights/presets/eslint")],
+}

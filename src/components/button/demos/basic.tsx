@@ -1,8 +1,8 @@
-import React from "react"
-import { Space } from "antd-mobile"
 import { Button } from "@joewrights/mobile-kit"
+import { Space } from "antd-mobile"
+import React from "react"
 
-export default () => {
+const Basic = () => {
     return (
         <Space direction="vertical" block>
             <Button color="primary">主要按钮</Button>
@@ -20,3 +20,5 @@ export default () => {
         </Space>
     )
 }
+
+export default Basic

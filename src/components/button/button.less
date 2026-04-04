@@ -1,114 +1,114 @@
 @import "../../styles/index.less";
 
 :root {
-    --mk-button-icon-size: var(--mk-font-size-lg);
-    --mk-button-font-weight: var(--mk-font-weight-bold);
-    --mk-button-border-radius: var(--mk-border-radius-lg);
-    --mk-button-border-radius-rounded: var(--mk-border-radius-max);
-    --mk-button-padding: 0 var(--mk-padding-lg);
-    --mk-button-height: 40px;
-    --mk-button-border-color: var(--mk-border-color-base);
-    --mk-button-border-color-loading: var(--mk-border-color-base);
-    --mk-button-background-color-primary: var(--mk-color-primary);
-    --mk-button-background-color-secondary: rgba(37, 37, 37, 0.05);
-    --mk-button-background-color-third: #fff;
-    --mk-button-background-color-disabled: rgba(0, 0, 0, 0.04);
-    --mk-button-background-color-disabled-loading: rgba(0, 0, 0, 0.04);
-    --mk-button-color: rgba(0, 0, 0, 0.88);
-    --mk-button-color-primary: #fff;
-    --mk-button-color-secondary: var(--mk-color-primary);
-    --mk-button-color-third: rgba(0, 0, 0, 0.88);
-    --mk-button-color-disabled: rgba(0, 0, 0, 0.25);
-    --mk-button-opacity-disabled: 1;
-    --mk-button-opacity-disabled-loading: 1;
+	--mk-button-icon-size: var(--mk-font-size-lg);
+	--mk-button-font-weight: var(--mk-font-weight-bold);
+	--mk-button-border-radius: var(--mk-border-radius-lg);
+	--mk-button-border-radius-rounded: var(--mk-border-radius-max);
+	--mk-button-padding: 0 var(--mk-padding-lg);
+	--mk-button-height: 40px;
+	--mk-button-border-color: var(--mk-border-color-base);
+	--mk-button-border-color-loading: var(--mk-border-color-base);
+	--mk-button-background-color-primary: var(--mk-color-primary);
+	--mk-button-background-color-secondary: rgba(37, 37, 37, 0.05);
+	--mk-button-background-color-third: #fff;
+	--mk-button-background-color-disabled: rgba(0, 0, 0, 0.04);
+	--mk-button-background-color-disabled-loading: rgba(0, 0, 0, 0.04);
+	--mk-button-color: rgba(0, 0, 0, 0.88);
+	--mk-button-color-primary: #fff;
+	--mk-button-color-secondary: var(--mk-color-primary);
+	--mk-button-color-third: rgba(0, 0, 0, 0.88);
+	--mk-button-color-disabled: rgba(0, 0, 0, 0.25);
+	--mk-button-opacity-disabled: 1;
+	--mk-button-opacity-disabled-loading: 1;
 }
 
 .@{prefixCls}-button {
-    &.adm-button {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        box-sizing: border-box;
-        height: var(--mk-button-height);
-        padding: var(--mk-button-padding);
-        font-size: var(--mk-button-font-size);
-        font-weight: var(--mk-button-font-weight);
-        font-style: normal;
-        overflow: hidden;
+	&.adm-button {
+		box-sizing: border-box;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: var(--mk-button-height);
+		padding: var(--mk-button-padding);
+		overflow: hidden;
+		font-size: var(--mk-button-font-size);
+		font-style: normal;
+		font-weight: var(--mk-button-font-weight);
 
-        &__content {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 4px;
-        }
+		&__content {
+			display: flex;
+			gap: 4px;
+			align-items: center;
+			justify-content: center;
+		}
 
-        &__icon {
-            font-size: var(--mk-button-icon-size);
-        }
+		&__icon {
+			font-size: var(--mk-button-icon-size);
+		}
 
-        &__loading-icon {
-            width: 20px;
-            height: 20px;
-            font-size: 20px;
-            animation: spinning 1s linear infinite;
-        }
+		&__loading-icon {
+			width: 20px;
+			height: 20px;
+			font-size: 20px;
+			animation: spinning 1s linear infinite;
+		}
 
-        &.adm-button-primary {
-            --background-color: var(--mk-button-background-color-primary);
-            color: var(--mk-button-color-primary);
-        }
+		&.adm-button-primary {
+			--background-color: var(--mk-button-background-color-primary);
+			color: var(--mk-button-color-primary);
+		}
 
-        &.@{prefixCls}-button-secondary {
-            background-color: var(--mk-button-background-color-secondary);
-            color: var(--mk-button-color-secondary);
-        }
+		&.@{prefixCls}-button-secondary {
+			color: var(--mk-button-color-secondary);
+			background-color: var(--mk-button-background-color-secondary);
+		}
 
-        &.@{prefixCls}-button-third {
-            background-color: var(--mk-button-background-color-third);
-            color: var(--mk-button-color-third);
-            border-color: var(--mk-button-border-color);
-        }
+		&.@{prefixCls}-button-third {
+			color: var(--mk-button-color-third);
+			background-color: var(--mk-button-background-color-third);
+			border-color: var(--mk-button-border-color);
+		}
 
-        &.adm-button-shape-default {
-            border-radius: var(--mk-button-border-radius);
+		&.adm-button-shape-default {
+			border-radius: var(--mk-button-border-radius);
 
-            &:before {
-                border-radius: var(--mk-button-border-radius);
-            }
-        }
+			&::before {
+				border-radius: var(--mk-button-border-radius);
+			}
+		}
 
-        &.adm-button-shape-rounded {
-            border-radius: var(--mk-button-border-radius-rounded);
+		&.adm-button-shape-rounded {
+			border-radius: var(--mk-button-border-radius-rounded);
 
-            &:before {
-                border-radius: var(--mk-button-border-radius-rounded);
-            }
-        }
+			&::before {
+				border-radius: var(--mk-button-border-radius-rounded);
+			}
+		}
 
-        &.adm-button-disabled {
-            --background-color: var(--mk-button-background-color-disabled);
-            color: var(--mk-button-color-disabled);
-            border-color: var(--mk-button-border-color);
-            opacity: var(--mk-button-opacity-disabled);
+		&.adm-button-disabled {
+			--background-color: var(--mk-button-background-color-disabled);
+			color: var(--mk-button-color-disabled);
+			border-color: var(--mk-button-border-color);
+			opacity: var(--mk-button-opacity-disabled);
 
-            &.adm-button-loading {
-                --background-color: var(
-                    --mk-button-background-color-disabled-loading
-                );
-                border-color: var(--mk-button-border-color-loading);
-                opacity: var(--mk-button-opacity-disabled-loading);
-            }
-        }
-    }
+			&.adm-button-loading {
+				--background-color: var(
+					--mk-button-background-color-disabled-loading
+				);
+				border-color: var(--mk-button-border-color-loading);
+				opacity: var(--mk-button-opacity-disabled-loading);
+			}
+		}
+	}
 
-    @keyframes spinning {
-        from {
-            transform: rotate(0deg);
-        }
+	@keyframes spinning {
+		from {
+			transform: rotate(0deg);
+		}
 
-        to {
-            transform: rotate(360deg);
-        }
-    }
+		to {
+			transform: rotate(360deg);
+		}
+	}
 }

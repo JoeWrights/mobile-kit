@@ -1,44 +1,41 @@
 {
-  "name": "@joewrights/mobile-kit",
-  "version": "0.1.0",
-  "description": "React mobile component library based on antd-mobile",
-  "license": "MIT",
-  "main": "dist/index.js",
-  "module": "dist/index.esm.js",
-  "typings": "dist/index.d.ts",
-  "files": [
-    "dist",
-    "es",
-    "lib"
-  ],
-  "scripts": {
-    "dev": "dumi dev",
-    "docs:build": "dumi build",
-    "build": "father build",
-    "clean": "rimraf dist es lib .dumi"
-  },
-  "peerDependencies": {
-    "react": ">=18",
-    "react-dom": ">=18"
-  },
-  "dependencies": {
-    "antd-mobile": "^5.42.3",
-    "classnames": "^2.5.1"
-  },
-  "devDependencies": {
-    "@joewrights/presets": "^1.0.1",
-    "@types/react": "^18.3.12",
-    "@types/react-dom": "^18.3.1",
-    "dumi": "^2.4.15",
-    "dumi-theme-mobile": "^2.3.5",
-    "eslint": "7.32.0",
-    "father": "^4.5.8",
-    "prettier": "1.19.1",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "rimraf": "^6.0.1",
-    "stylelint": "15.11.0",
-    "typescript": "^5.7.2"
-  },
-  "packageManager": "pnpm@10.7.1"
+    "name": "@joewrights/mobile-kit",
+    "version": "0.1.0",
+    "description": "React mobile component library based on antd-mobile",
+    "license": "MIT",
+    "main": "dist/index.js",
+    "module": "dist/index.esm.js",
+    "typings": "dist/index.d.ts",
+    "files": [
+        "dist",
+        "es",
+        "lib"
+    ],
+    "scripts": {
+        "dev": "dumi dev",
+        "docs:build": "dumi build",
+        "build": "father build",
+        "clean": "rimraf dist es lib .dumi"
+    },
+    "peerDependencies": {
+        "react": ">=18",
+        "react-dom": ">=18"
+    },
+    "dependencies": {
+        "antd-mobile": "^5.42.3",
+        "classnames": "^2.5.1"
+    },
+    "devDependencies": {
+        "@joewrights/presets": "^1.0.1",
+        "@types/react": "^18.3.12",
+        "@types/react-dom": "^18.3.1",
+        "dumi": "^2.4.15",
+        "dumi-theme-mobile": "^2.3.5",
+        "father": "^4.5.8",
+        "react": "^18.3.1",
+        "react-dom": "^18.3.1",
+        "rimraf": "^6.0.1",
+        "typescript": "^5.7.2"
+    },
+    "packageManager": "pnpm@10.7.1"
 }

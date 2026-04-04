@@ -1,10 +1,15 @@
-import React, { useMemo } from "react"
-import { Button as AntdMobileButton } from "antd-mobile"
-import type { ButtonProps as AntdMobileButtonProps } from "antd-mobile"
-import classNames from "classnames"
-import type { ButtonProps } from "./types"
-import { getPrefixCls } from "@/utils"
 import "./button.less"
+
+import {
+    Button as AntdMobileButton,
+    ButtonProps as AntdMobileButtonProps,
+} from "antd-mobile"
+import classNames from "classnames"
+import React, { useMemo } from "react"
+
+import { getPrefixCls } from "@/utils"
+
+import { ButtonProps } from "./types"
 
 const prefixCls = getPrefixCls("button")
 
@@ -24,12 +29,12 @@ const Button: React.FC<ButtonProps> = ({
     const mergedColor = useMemo(() => {
         if (isCustomColor) return "default"
         return color as AntdMobileButtonProps["color"]
-    }, [])
+    }, [color, isCustomColor])
 
     const mergedFill = useMemo(() => {
         if (fill) return fill
         if (color === "danger") return "outline"
-    }, [])
+    }, [color, fill])
 
     return (
         <AntdMobileButton

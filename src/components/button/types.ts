@@ -1,4 +1,4 @@
-import type { ButtonProps as AntdMobileButtonProps } from "antd-mobile"
+import { ButtonProps as AntdMobileButtonProps } from "antd-mobile"
 
 export type ButtonColor = AntdMobileButtonProps["color"] | "secondary" | "third"
 

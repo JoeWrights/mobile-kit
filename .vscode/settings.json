@@ -3,7 +3,8 @@
   "editor.formatOnSave": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": "explicit"
+    "source.fixAll.eslint": "explicit",
+    "source.fixAll.stylelint": "explicit"
   },
 
   // Prettier 配置
@@ -12,25 +13,32 @@
 
   // ESLint 配置
   "eslint.enable": true,
+  "eslint.useFlatConfig": false,
+  "eslint.packageManager": "pnpm",
+  "eslint.alwaysShowStatus": true,
+  "eslint.nodePath": "./node_modules/.pnpm/node_modules",
+  "eslint.run": "onType",
   "eslint.validate": [
     "javascript",
     "javascriptreact",
     "typescript",
     "typescriptreact"
   ],
-  "eslint.workingDirectories": [
-    {
-      "pattern": "./packages/*"
-    },
-    "."
-  ],
+  "eslint.workingDirectories": [{ "mode": "auto" }],
   "eslint.format.enable": true,
-  "eslint.options": {
-    "ignorePattern": [
-      "!**/.fatherrc.*",
-      "!**/.dumirc.*"
-    ]
-  },
+  "eslint.options": {},
+
+  // Stylelint 配置
+  "stylelint.enable": true,
+  "stylelint.validate": [
+    "css",
+    "less",
+    "scss",
+    "postcss"
+  ],
+  "css.validate": false,
+  "less.validate": false,
+  "scss.validate": false,
 
   // 文件关联
   "[javascript]": {
@@ -60,6 +68,18 @@
   "[markdown]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true
+  },
+  "[css]": {
+    "editor.defaultFormatter": "stylelint.vscode-stylelint",
+    "editor.formatOnSave": false
+  },
+  "[less]": {
+    "editor.defaultFormatter": "stylelint.vscode-stylelint",
+    "editor.formatOnSave": false
+  },
+  "[scss]": {
+    "editor.defaultFormatter": "stylelint.vscode-stylelint",
+    "editor.formatOnSave": false
   },
 
   // TypeScript 配置
