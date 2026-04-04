@@ -1,6 +1,8 @@
-import React, { useMemo, useState } from "react"
-import { getGalleryComponent } from "./gallery-data"
 import "./gallery.less"
+
+import React, { useMemo, useState } from "react"
+
+import { getGalleryComponent } from "./gallery-data"
 
 interface ComponentGalleryPageProps {
     componentKey: string
@@ -16,10 +18,10 @@ export const ComponentGalleryPage: React.FC<ComponentGalleryPageProps> = ({
     const component = getGalleryComponent(componentKey)
     const demos = component?.demos || []
 
-    const activeDemo = useMemo(
-        () => demos[activeIndex] || demos[0],
-        [demos, activeIndex],
-    )
+    const activeDemo = useMemo(() => demos[activeIndex] || demos[0], [
+        demos,
+        activeIndex,
+    ])
 
     if (!component || !activeDemo) return null
 

@@ -1,6 +1,8 @@
-import React, { useMemo, useState } from "react"
-import { galleryComponents } from "./gallery-data"
 import "./gallery.less"
+
+import React, { useMemo, useState } from "react"
+
+import { galleryComponents } from "./gallery-data"
 
 export const GalleryPage: React.FC = () => {
     const [keyword, setKeyword] = useState("")

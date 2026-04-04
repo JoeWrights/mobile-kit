@@ -13,6 +13,7 @@ export interface GalleryComponentItem {
 
 /**
  * 按 PC 端组件菜单顺序维护移动端组件列表
+ * 由 scripts/sync-gallery-demos.cjs 自动生成
  */
 export const galleryComponents: GalleryComponentItem[] = [
     {
@@ -20,11 +21,15 @@ export const galleryComponents: GalleryComponentItem[] = [
         title: "Button 按钮",
         route: "/gallery/button",
         demos: [
-            { key: "demo1", title: "Demo1", path: "/~demos/button-demo-basic" },
+            {
+                key: "demo1",
+                title: "基础用法",
+                path: "/~demos/src-components-button-demo-basic",
+            },
             {
                 key: "demo2",
-                title: "Demo2",
-                path: "/~demos/button-demo-rounded",
+                title: "圆角开关",
+                path: "/~demos/src-components-button-demo-rounded",
             },
         ],
     },
@@ -33,11 +38,27 @@ export const galleryComponents: GalleryComponentItem[] = [
         title: "Popup 弹出层",
         route: "/gallery/popup",
         demos: [
-            { key: "demo1", title: "Demo1", path: "/~demos/popup-demo-basic" },
+            {
+                key: "demo1",
+                title: "基础用法",
+                path: "/~demos/popup-demo-basic",
+            },
             {
                 key: "demo2",
-                title: "Demo2",
+                title: "弹出方向",
                 path: "/~demos/popup-demo-position",
+            },
+        ],
+    },
+    {
+        key: "popup-container",
+        title: "PopupContainer 弹出容器",
+        route: "/gallery/component.html?component=popup-container",
+        demos: [
+            {
+                key: "demo1",
+                title: "基础用法",
+                path: "/~demos/src-components-popup-container-demo-basic",
             },
         ],
     },

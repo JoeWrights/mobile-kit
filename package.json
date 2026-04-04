@@ -12,8 +12,9 @@
         "lib"
     ],
     "scripts": {
-        "dev": "dumi dev",
-        "docs:build": "dumi build",
+        "sync:gallery-demos": "node scripts/sync-gallery-demos.cjs",
+        "dev": "pnpm sync:gallery-demos && dumi dev",
+        "docs:build": "pnpm sync:gallery-demos && dumi build",
         "build": "father build",
         "clean": "rimraf dist es lib .dumi"
     },
