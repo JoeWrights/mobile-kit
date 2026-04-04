@@ -1,0 +1,17 @@
+doc-dist
+dist
+node_modules
+.dumi
+.dumi-production
+.dumi-tmp
+.turbo
+.env
+.env.local
+.env.*.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env.development
+node_modules/
+pnpm-lock.yaml
+pnpm-workspace.yaml
