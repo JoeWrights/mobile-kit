@@ -1,30 +1,23 @@
 {
-  "compilerOptions": {
-    "target": "ES2018",
-    "module": "ESNext",
-    "moduleResolution": "Node",
-    "jsx": "react-jsx",
-    "strict": true,
-    "declaration": true,
-    "declarationMap": true,
-    "sourceMap": true,
-    "esModuleInterop": true,
-    "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true,
-    "types": [
-      "react",
-      "react-dom"
-    ],
-    "baseUrl": ".",
-    "paths": {
-      "@/*": [
-        "src/*"
-      ]
-    }
-  },
-  "include": [
-    "src",
-    ".dumirc.ts",
-    ".fatherrc.ts"
-  ]
+    "compilerOptions": {
+        "target": "ES2018",
+        "module": "ESNext",
+        "moduleResolution": "Node",
+        "jsx": "react-jsx",
+        "strict": true,
+        "declaration": true,
+        "declarationMap": true,
+        "sourceMap": true,
+        "esModuleInterop": true,
+        "skipLibCheck": true,
+        "forceConsistentCasingInFileNames": true,
+        "types": ["react", "react-dom"],
+        "baseUrl": ".",
+        "paths": {
+            "@/*": ["src/*"],
+            "@joewrights/mobile-kit": ["src"],
+            "@joewrights/mobile-kit/*": ["src/*", "*"]
+        }
+    },
+    "include": ["src", ".dumirc.ts", ".fatherrc.ts"]
 }
