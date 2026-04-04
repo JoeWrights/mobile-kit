@@ -6,6 +6,10 @@
 
 <code src="./demos/basic.tsx"></code>
 
+## 底部按钮
+
+<code src="./demos/show-footer.tsx"></code>
+
 ## API
 
 | 参数     | 说明                             | 类型      | 默认值 |

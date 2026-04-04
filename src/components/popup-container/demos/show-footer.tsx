@@ -2,7 +2,7 @@ import { PopupContainer } from "@joewrights/mobile-kit"
 import { Button, Space } from "antd-mobile"
 import React, { useState } from "react"
 
-const Basic = () => {
+const ShowFooter = () => {
     const [visible, setVisible] = useState(false)
 
     return (
@@ -15,6 +15,8 @@ const Basic = () => {
                 title="标题"
                 onCancel={() => setVisible(false)}
                 onConfirm={() => setVisible(false)}
+                showFooter
+                confirmButtonPosition="bottom"
             >
                 <div style={{ padding: "20px 16px" }}>
                     <Space direction="vertical" block>
@@ -31,4 +33,4 @@ const Basic = () => {
     )
 }
 
-export default Basic
+export default ShowFooter

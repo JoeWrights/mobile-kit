@@ -53,12 +53,17 @@ export const galleryComponents: GalleryComponentItem[] = [
     {
         key: "popup-container",
         title: "PopupContainer 弹出容器",
-        route: "/gallery/component.html?component=popup-container",
+        route: "/gallery/popup-container",
         demos: [
             {
                 key: "demo1",
                 title: "基础用法",
                 path: "/~demos/src-components-popup-container-demo-basic",
+            },
+            {
+                key: "demo2",
+                title: "底部按钮",
+                path: "/~demos/src-components-popup-container-demo-show-footer",
             },
         ],
     },

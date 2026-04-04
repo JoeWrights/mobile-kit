@@ -25,6 +25,49 @@ const prettifyDemoTitle = (name) => {
     return name.replace(/[_-]/g, " ")
 }
 
+const extractDemosFromMarkdown = (markdown, componentKey) => {
+    const lines = markdown.split(/\r?\n/)
+    let currentSection = ""
+    const rawDemos = []
+
+    for (const line of lines) {
+        const sectionMatched = line.match(/^##\s+(.+)$/)
+        if (sectionMatched) {
+            currentSection = sectionMatched[1].trim()
+        }
+
+        const codePattern = /<code\s+src=["']\.\/demos\/([^"']+)\.tsx["'][^>]*>/g
+        for (const matched of line.matchAll(codePattern)) {
+            const fileName = matched[1]
+            rawDemos.push({
+                sectionTitle: currentSection,
+                fileName,
+                source: `src/components/${componentKey}/demos/${fileName}.tsx`,
+            })
+        }
+    }
+
+    const sectionCount = rawDemos.reduce((acc, item) => {
+        const key = item.sectionTitle || "__NO_SECTION__"
+        acc[key] = (acc[key] || 0) + 1
+        return acc
+    }, {})
+
+    return rawDemos.map((item, idx) => {
+        const sectionKey = item.sectionTitle || "__NO_SECTION__"
+        const title =
+            sectionCount[sectionKey] > 1
+                ? prettifyDemoTitle(item.fileName)
+                : item.sectionTitle || prettifyDemoTitle(item.fileName)
+
+        return {
+            key: `demo${idx + 1}`,
+            title,
+            source: item.source,
+        }
+    })
+}
+
 const discoverGalleryConfig = () => {
     if (!fs.existsSync(componentsRoot)) return []
 
@@ -45,21 +88,7 @@ const discoverGalleryConfig = () => {
         const markdown = fs.readFileSync(indexMdPath, "utf8")
         const title = parseTitleFromMarkdown(markdown, key)
 
-        const demoMatches = [
-            ...markdown.matchAll(
-                /##\s+([^\n]+)[\S\s]*?<code\s+src=["']\.\/demos\/([^"']+)\.tsx["'][^>]*>/g,
-            ),
-        ]
-
-        let demos = demoMatches.map((matched, idx) => {
-            const sectionTitle = matched[1]?.trim() || `Demo${idx + 1}`
-            const fileName = matched[2]
-            return {
-                key: `demo${idx + 1}`,
-                title: sectionTitle,
-                source: `src/components/${key}/demos/${fileName}.tsx`,
-            }
-        })
+        let demos = extractDemosFromMarkdown(markdown, key)
 
         if (demos.length === 0) {
             const demoFiles = fs
