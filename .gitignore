@@ -6,6 +6,9 @@ docs-dist
 .DS_Store
 
 # dumi generated artifacts
-.dumi/*
-!.dumi/theme/
-!.dumi/theme/**
+.dumi/tmp
+.dumi/tmp-test
+.dumi/tmp-production
+
+# test
+coverage
