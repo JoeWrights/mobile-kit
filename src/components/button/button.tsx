@@ -3,8 +3,8 @@ import { Button as AntdMobileButton } from "antd-mobile"
 import type { ButtonProps as AntdMobileButtonProps } from "antd-mobile"
 import classNames from "classnames"
 import type { ButtonProps } from "./types"
-import "./button.less"
 import { getPrefixCls } from "@/utils"
+import "./button.less"
 
 const prefixCls = getPrefixCls("button")
 
