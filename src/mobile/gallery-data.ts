@@ -35,13 +35,13 @@ export const galleryComponents: GalleryComponentItem[] = [
     },
     {
         key: "picker",
-        title: "picker",
+        title: "Picker 选择器",
         route: "/gallery/component.html?component=picker",
         demos: [
             {
                 key: "demo1",
                 title: "基础用法",
-                path: "/~demos/picker-demo-basic",
+                path: "/~demos/src-components-picker-demo-basic",
             },
         ],
     },

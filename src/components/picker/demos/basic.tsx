@@ -3,7 +3,7 @@ import React, { useState } from "react"
 
 const Basic = () => {
     const [visible, setVisible] = useState(false)
-    const [value, setValue] = useState<PickerValue>()
+    const [value, setValue] = useState<PickerValue>(null)
 
     return (
         <>
@@ -12,6 +12,7 @@ const Basic = () => {
             </Button>
             <Picker
                 visible={visible}
+                value={[value]}
                 options={[
                     { label: "Apple", value: "apple" },
                     { label: "Banana", value: "banana" },
@@ -20,6 +21,7 @@ const Basic = () => {
                     setValue(value)
                     setVisible(false)
                 }}
+                onCancel={() => setVisible(false)}
             />
         </>
     )

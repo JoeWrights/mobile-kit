@@ -12,7 +12,7 @@ export interface PickerProps extends PopupContainerProps {
     value?: PickerValue[]
     options?: PickerOption[]
     pickerViewProps?: PickerViewProps
-    onChange?: (value?: PickerValue) => void
+    onChange?: (value: PickerValue) => void
 }
 
 export type PickerValue = _PickerValue

@@ -22,7 +22,7 @@ const Picker: React.FC<PickerProps> = ({
     onChange,
     ...props
 }) => {
-    const [selectedValue, setSelectedValue] = useState<PickerValue>()
+    const [selectedValue, setSelectedValue] = useState<PickerValue>(null)
 
     const displayValue = useMemo(() => {
         return !isUndefined(selectedValue) ? [selectedValue] : value
@@ -31,13 +31,13 @@ const Picker: React.FC<PickerProps> = ({
     const handleConfirm = useCallback(() => {
         const confirmed = !isUndefined(selectedValue)
             ? selectedValue
-            : value?.[0]
+            : value?.[0] || null
         onChange?.(confirmed)
     }, [onChange, selectedValue, value])
 
     useEffect(() => {
         if (!visible) return
-        setSelectedValue(undefined)
+        setSelectedValue(null)
     }, [visible])
 
     return (
