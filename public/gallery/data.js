@@ -18,6 +18,18 @@ window.GALLERY_COMPONENTS = [
         ],
     },
     {
+        key: "picker",
+        title: "picker",
+        route: "/gallery/component.html?component=picker",
+        demos: [
+            {
+                key: "demo1",
+                title: "基础用法",
+                path: "/~demos/picker-demo-basic",
+            },
+        ],
+    },
+    {
         key: "popup-container",
         title: "PopupContainer 弹出容器",
         route: "/gallery/popup-container",
