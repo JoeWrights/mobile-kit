@@ -155,7 +155,7 @@ const discoverGalleryConfig = () => {
                 normalizeFile(path.relative(projectRoot, galleryDocPath)),
             )
         }
-        const route = `/gallery/${key}`
+        const route = `/gallery/component.html?component=${key}`
 
         config.push({
             key,

@@ -3,7 +3,7 @@ window.GALLERY_COMPONENTS = [
     {
         key: "button",
         title: "Button 按钮",
-        route: "/gallery/button",
+        route: "/gallery/component.html?component=button",
         demos: [
             {
                 key: "demo1",
@@ -20,7 +20,7 @@ window.GALLERY_COMPONENTS = [
     {
         key: "picker",
         title: "Picker 选择器",
-        route: "/gallery/picker",
+        route: "/gallery/component.html?component=picker",
         demos: [
             {
                 key: "demo1",
@@ -32,7 +32,7 @@ window.GALLERY_COMPONENTS = [
     {
         key: "popup-container",
         title: "PopupContainer 弹出容器",
-        route: "/gallery/popup-container",
+        route: "/gallery/component.html?component=popup-container",
         demos: [
             {
                 key: "demo1",
