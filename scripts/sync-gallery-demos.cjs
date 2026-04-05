@@ -10,6 +10,44 @@ const docsGalleryRoot = path.join(projectRoot, "docs/gallery")
 
 const normalizeFile = (file) => file.replaceAll("\\\\", "/")
 
+const toGalleryDocTitle = (componentKey) => {
+    return componentKey
+        .split(/[_-]/g)
+        .filter(Boolean)
+        .map((part) => part[0].toUpperCase() + part.slice(1))
+        .join("")
+}
+
+const renderGalleryDocMarkdown = (componentKey) => {
+    return [
+        "---",
+        `title: Gallery ${toGalleryDocTitle(componentKey)}`,
+        "sidebar: false",
+        "mobile: false",
+        "---",
+        "",
+        "<iframe",
+        `  src="/gallery/component.html?component=${componentKey}"`,
+        '  style="width:100%;height:calc(100vh - 120px);min-height:640px;border:0;display:block;"',
+        "></iframe>",
+        "",
+    ].join("\n")
+}
+
+const ensureGalleryDoc = (componentKey) => {
+    const galleryDocPath = path.join(docsGalleryRoot, `${componentKey}.md`)
+    if (fs.existsSync(galleryDocPath)) return { created: false, galleryDocPath }
+    if (!fs.existsSync(docsGalleryRoot)) {
+        fs.mkdirSync(docsGalleryRoot, { recursive: true })
+    }
+    fs.writeFileSync(
+        galleryDocPath,
+        renderGalleryDocMarkdown(componentKey),
+        "utf8",
+    )
+    return { created: true, galleryDocPath }
+}
+
 const parseTitleFromMarkdown = (markdown, fallback) => {
     const heading = markdown.match(/^#\s+(.+)$/m)?.[1]?.trim()
     return heading || fallback
@@ -69,7 +107,9 @@ const extractDemosFromMarkdown = (markdown, componentKey) => {
 }
 
 const discoverGalleryConfig = () => {
-    if (!fs.existsSync(componentsRoot)) return []
+    if (!fs.existsSync(componentsRoot)) {
+        return { config: [], createdGalleryDocs: [] }
+    }
 
     const componentDirs = fs
         .readdirSync(componentsRoot, { withFileTypes: true })
@@ -78,6 +118,7 @@ const discoverGalleryConfig = () => {
         .sort((a, b) => a.localeCompare(b))
 
     const config = []
+    const createdGalleryDocs = []
 
     for (const key of componentDirs) {
         const componentDir = path.join(componentsRoot, key)
@@ -108,10 +149,13 @@ const discoverGalleryConfig = () => {
 
         if (demos.length === 0) continue
 
-        const galleryDocPath = path.join(docsGalleryRoot, `${key}.md`)
-        const route = fs.existsSync(galleryDocPath)
-            ? `/gallery/${key}`
-            : `/gallery/component.html?component=${key}`
+        const { created, galleryDocPath } = ensureGalleryDoc(key)
+        if (created) {
+            createdGalleryDocs.push(
+                normalizeFile(path.relative(projectRoot, galleryDocPath)),
+            )
+        }
+        const route = `/gallery/${key}`
 
         config.push({
             key,
@@ -121,7 +165,7 @@ const discoverGalleryConfig = () => {
         })
     }
 
-    return config
+    return { config, createdGalleryDocs }
 }
 
 const fallbackDemoId = (componentKey, source) => {
@@ -289,7 +333,7 @@ const printResolvedDemoMap = (resolvedConfig) => {
     }
 }
 
-const galleryConfig = discoverGalleryConfig()
+const { config: galleryConfig, createdGalleryDocs } = discoverGalleryConfig()
 const candidatesMap = collectDemoCandidates()
 const resolvedConfig = buildResolvedConfig(galleryConfig, candidatesMap)
 
@@ -299,4 +343,10 @@ fs.writeFileSync(galleryJsPath, renderJs(resolvedConfig), "utf8")
 console.log(
     `[sync-gallery-demos] synced ${resolvedConfig.length} components, detected sources: ${candidatesMap.size}`,
 )
+if (createdGalleryDocs.length > 0) {
+    console.log("[sync-gallery-demos] created gallery docs:")
+    for (const docPath of createdGalleryDocs) {
+        console.log(`  - ${docPath}`)
+    }
+}
 printResolvedDemoMap(resolvedConfig)

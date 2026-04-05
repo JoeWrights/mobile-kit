@@ -36,7 +36,7 @@ export const galleryComponents: GalleryComponentItem[] = [
     {
         key: "picker",
         title: "Picker 选择器",
-        route: "/gallery/component.html?component=picker",
+        route: "/gallery/picker",
         demos: [
             {
                 key: "demo1",

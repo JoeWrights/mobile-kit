@@ -1,26 +1,25 @@
-import { defineConfig } from 'dumi';
+import { defineConfig } from "dumi"
 
 export default defineConfig({
-  outputPath: 'docs-dist',
-  headScripts: ['/mobile-redirect.js'],
-  resolve: {
-    atomDirs: [{ type: 'component', dir: 'src/components' }],
-  },
-  themeConfig: {
-    name: 'Mobile Kit',
-    logo: false,
-    deviceWidth: 375,
-    nav: [
-      { title: '指南', link: '/guide' },
-      { title: '组件', link: '/components/button' },
-      { title: '移动预览', link: '/gallery' },
-    ],
-  },
-  alias: {
-    '@joewrights/mobile-kit': '/src',
-  },
-  styles: [
-    `
+    outputPath: "docs-dist",
+    headScripts: ["/mobile-redirect.js"],
+    resolve: {
+        atomDirs: [{ type: "component", dir: "src/components" }],
+    },
+    themeConfig: {
+        name: "Mobile Kit",
+        logo: false,
+        deviceWidth: 375,
+        nav: [
+            { title: "指南", link: "/guide" },
+            { title: "组件", link: "/components/button" },
+        ],
+    },
+    alias: {
+        "@joewrights/mobile-kit": "/src",
+    },
+    styles: [
+        `
       :root {
         --adm-color-primary: #1677ff;
       }
@@ -32,5 +31,5 @@ export default defineConfig({
         background: linear-gradient(180deg, #f7faff 0%, #ffffff 100%);
       }
     `,
-  ],
-});
+    ],
+})

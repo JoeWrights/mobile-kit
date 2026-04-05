@@ -20,7 +20,7 @@ window.GALLERY_COMPONENTS = [
     {
         key: "picker",
         title: "Picker 选择器",
-        route: "/gallery/component.html?component=picker",
+        route: "/gallery/picker",
         demos: [
             {
                 key: "demo1",
