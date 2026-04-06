@@ -1,9 +1,9 @@
-import { Button, Picker, PickerValue } from "@joewrights/mobile-kit"
+import { Button, Picker, PickerValueUnion } from "@joewrights/mobile-kit"
 import React, { useState } from "react"
 
 const Basic = () => {
     const [visible, setVisible] = useState(false)
-    const [value, setValue] = useState<PickerValue>(null)
+    const [value, setValue] = useState<PickerValueUnion>(null)
 
     return (
         <>
@@ -12,7 +12,7 @@ const Basic = () => {
             </Button>
             <Picker
                 visible={visible}
-                value={[value]}
+                value={value}
                 options={[
                     { label: "Apple", value: "apple" },
                     { label: "Banana", value: "banana" },
@@ -20,6 +20,7 @@ const Basic = () => {
                 onChange={(value) => {
                     setValue(value)
                     setVisible(false)
+                    console.log(value)
                 }}
                 onCancel={() => setVisible(false)}
             />

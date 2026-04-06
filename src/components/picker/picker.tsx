@@ -1,3 +1,4 @@
+/* eslint-disable no-undef-init */
 /* eslint-disable unicorn/no-useless-undefined */
 import "./picker.less"
 
@@ -25,13 +26,22 @@ const Picker: React.FC<PickerProps> = ({
     const [selectedValue, setSelectedValue] = useState<PickerValue>(null)
 
     const displayValue = useMemo(() => {
-        return !isNil(selectedValue) ? [selectedValue] : value
+        let val: PickerValue[] | undefined = undefined
+        if (!isNil(selectedValue)) {
+            val = [selectedValue]
+        } else if (value) {
+            val = Array.isArray(value) ? value : [value]
+        }
+        return val
     }, [selectedValue, value])
 
     const handleConfirm = useCallback(() => {
-        const confirmed = !isNil(selectedValue)
-            ? selectedValue
-            : value?.[0] ?? null
+        let confirmed: PickerValue | PickerValue[] = null
+        if (!isNil(selectedValue)) {
+            confirmed = selectedValue
+        } else if (value) {
+            confirmed = Array.isArray(value) ? value : [value]
+        }
         onChange?.(confirmed)
     }, [onChange, selectedValue, value])
 
