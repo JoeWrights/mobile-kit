@@ -2,7 +2,7 @@
 import "./picker.less"
 
 import { PickerView } from "antd-mobile"
-import { isUndefined } from "lodash-es"
+import { isNil } from "lodash-es"
 import React, { useCallback, useEffect, useMemo, useState } from "react"
 
 import { getPrefixCls } from "@/utils"
@@ -25,11 +25,11 @@ const Picker: React.FC<PickerProps> = ({
     const [selectedValue, setSelectedValue] = useState<PickerValue>(null)
 
     const displayValue = useMemo(() => {
-        return !isUndefined(selectedValue) ? [selectedValue] : value
+        return !isNil(selectedValue) ? [selectedValue] : value
     }, [selectedValue, value])
 
     const handleConfirm = useCallback(() => {
-        const confirmed = !isUndefined(selectedValue)
+        const confirmed = !isNil(selectedValue)
             ? selectedValue
             : value?.[0] || null
         onChange?.(confirmed)
