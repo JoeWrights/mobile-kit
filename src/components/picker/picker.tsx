@@ -11,7 +11,7 @@ import { getPrefixCls } from "@/utils"
 import { PopupContainer } from "../popup-container"
 import { PickerProps, PickerValue } from "./types"
 
-const prefixCls = getPrefixCls("picker-container-wrapper")
+const prefixCls = getPrefixCls("picker")
 
 const Picker: React.FC<PickerProps> = ({
     value,
@@ -54,13 +54,13 @@ const Picker: React.FC<PickerProps> = ({
         <PopupContainer
             {...props}
             className={prefixCls}
-            contentClassName={getPrefixCls("picker-content-wrapper")}
+            contentClassName={`${prefixCls}__content`}
             visible={visible}
             title={title}
             onCancel={onCancel}
             onConfirm={handleConfirm}
         >
-            <div className={getPrefixCls("picker-view-content-wrapper")}>
+            <div className={`${prefixCls}__view`}>
                 <PickerView
                     mouseWheel
                     {...pickerViewProps}
