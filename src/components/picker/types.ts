@@ -12,7 +12,10 @@ export interface PickerProps extends PopupContainerProps {
     value?: PickerValue | PickerValue[]
     options?: PickerOption[]
     pickerViewProps?: Omit<PickerViewProps, "columns" | "value" | "onChange">
-    onChange?: (value: PickerValue | PickerValue[]) => void
+    onChange?: (
+        value: PickerValue | PickerValue[],
+        extendedValue?: Record<string, any>,
+    ) => void
 }
 
 export type PickerValue = _PickerValue

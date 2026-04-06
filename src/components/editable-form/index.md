@@ -1,4 +1,4 @@
-# PickerSelector 选择器
+# EditableForm 可编辑表单
 
 用于从屏幕边缘弹出内容区域，常用于菜单、筛选、表单和详情信息等场景。基于 `antd-mobile` 的 `Popup` 做统一样式封装。
 

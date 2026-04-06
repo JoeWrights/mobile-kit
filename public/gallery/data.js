@@ -18,6 +18,18 @@ window.GALLERY_COMPONENTS = [
         ],
     },
     {
+        key: "editable-form",
+        title: "EditableForm 可编辑表单",
+        route: "/gallery/component.html?component=editable-form",
+        demos: [
+            {
+                key: "demo1",
+                title: "基础用法",
+                path: "/~demos/src-components-editable-form-demo-basic",
+            },
+        ],
+    },
+    {
         key: "picker",
         title: "Picker 选择器",
         route: "/gallery/component.html?component=picker",
@@ -26,6 +38,18 @@ window.GALLERY_COMPONENTS = [
                 key: "demo1",
                 title: "基础用法",
                 path: "/~demos/src-components-picker-demo-basic",
+            },
+        ],
+    },
+    {
+        key: "picker-selector",
+        title: "PickerSelector 选择器",
+        route: "/gallery/component.html?component=picker-selector",
+        demos: [
+            {
+                key: "demo1",
+                title: "基础用法",
+                path: "/~demos/src-components-picker-selector-demo-basic",
             },
         ],
     },
