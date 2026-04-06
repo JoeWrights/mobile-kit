@@ -5,14 +5,12 @@ const Basic = () => {
     const dataConfig: EditableFormConfig = {
         name: {
             label: "姓名",
-            fieldType: "textArea",
-            layout: "vertical",
+            fieldType: "input",
             required: true,
         },
         age: {
             label: "年龄",
-            fieldType: "textArea",
-            layout: "vertical",
+            fieldType: "input",
         },
         email: {
             label: "邮箱",

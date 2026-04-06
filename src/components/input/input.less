@@ -1,0 +1,18 @@
+@import "../../styles/index.less";
+@import "../../components/editable-form/form.less";
+
+.@{prefixCls}-input {
+	width: 100%;
+	height: 100%;
+
+	input {
+		&::placeholder {
+			font-size: var(--mk-form-item-placeholder-font-size);
+		}
+	}
+
+	.adm-ellipsis {
+		font-size: var(--mk-form-item-value-font-size);
+		color: var(--mk-form-item-value-color);
+	}
+}
