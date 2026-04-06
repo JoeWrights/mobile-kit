@@ -1,3 +1,3 @@
 export const getPrefixCls = (prefixCls: string) => {
-  return `mk-${prefixCls}`;
-};
+    return `mk-${prefixCls}`
+}
