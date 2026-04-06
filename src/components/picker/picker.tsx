@@ -31,7 +31,7 @@ const Picker: React.FC<PickerProps> = ({
     const handleConfirm = useCallback(() => {
         const confirmed = !isNil(selectedValue)
             ? selectedValue
-            : value?.[0] || null
+            : value?.[0] ?? null
         onChange?.(confirmed)
     }, [onChange, selectedValue, value])
 
@@ -52,9 +52,9 @@ const Picker: React.FC<PickerProps> = ({
         >
             <div className={getPrefixCls("picker-view-content-wrapper")}>
                 <PickerView
+                    mouseWheel
                     {...pickerViewProps}
                     columns={[options]}
-                    mouseWheel
                     onChange={(val) => setSelectedValue(val?.[0])}
                     value={displayValue}
                 />

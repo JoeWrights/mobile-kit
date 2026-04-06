@@ -72,7 +72,7 @@ git diff <base-branch>...HEAD -- . $EXCLUDE
 
 -   命名是否清晰、语义化（变量、函数、组件、文件名）
 -   文件和文件夹命名是否遵循 kebab-case，**不存在例外**（`.tsx` 组件文件、`.less` 样式文件、`.ts` 工具文件均需遵守，如 `my-component.tsx`、`my-component.less`）
--   CSS class 命名是否遵循 BEM 规范：Block（`hg-info-ui-kit-mobile-component-name`）→ Element（`__element`）→ Modifier（`--modifier`），禁止使用无语义的缩写或与 BEM 结构不符的命名
+-   CSS class 命名是否遵循 BEM 规范：Block（`mk-component-name`）→ Element（`__element`）→ Modifier（`--modifier`），禁止使用无语义的缩写或与 BEM 结构不符的命名
 -   代码结构是否易于理解，逻辑分层是否合理
 -   是否有不必要的复杂度可以简化
 -   注释是否必要且准确（避免冗余注释，关键决策处要有注释）

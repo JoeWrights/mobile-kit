@@ -11,7 +11,7 @@ export interface PickerOption {
 export interface PickerProps extends PopupContainerProps {
     value?: PickerValue[]
     options?: PickerOption[]
-    pickerViewProps?: PickerViewProps
+    pickerViewProps?: Omit<PickerViewProps, "columns" | "value" | "onChange">
     onChange?: (value: PickerValue) => void
 }
 
