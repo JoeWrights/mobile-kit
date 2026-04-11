@@ -156,7 +156,7 @@ export interface EditableFormProps<T = any>
      * 选择器箭头的位置
      * @description 设置为 "start" 时，选择器箭头在选择器前面
      * @description 设置为 "end" 时，选择器箭头在选择器后面
-     * @default "end"
+     * @default "start"
      */
     selectorArrowPosition?: "start" | "end"
     /**
