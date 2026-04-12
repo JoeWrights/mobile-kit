@@ -1,6 +1,6 @@
 # DatePickerSelector 时间选择器
 
-用于从屏幕边缘弹出内容区域，常用于菜单、筛选、表单和详情信息等场景。基于 `antd-mobile` 的 `Popup` 做统一样式封装。
+日期选择触发器组件，点击后弹出时间选择面板。适用于表单场景，支持受控与非受控两种用法。
 
 ## 基础用法
 
@@ -8,8 +8,16 @@
 
 ## API
 
-| 参数     | 说明                             | 类型      | 默认值 |
-| -------- | -------------------------------- | --------- | ------ |
-| safeArea | 底部弹层是否自动增加安全区内边距 | `boolean` | `true` |
+| 参数                  | 说明                           | 类型                                                                  | 默认值 |
+| --------------------- | ------------------------------ | --------------------------------------------------------------------- | ------ |
+| value                 | 当前选中日期（受控）           | `PickerDate`                                                          | -      |
+| defaultValue          | 默认选中日期（非受控）         | `PickerDate`                                                          | -      |
+| onChange              | 确认后的回调                   | `(value?: PickerDate, extendedValue?: Record<string, unknown>) => void` | -      |
+| placeholder           | 未选择时的占位文案             | `string`                                                              | `请选择` |
+| editable              | 是否可编辑                     | `boolean`                                                             | `true` |
+| arrowStyle            | 箭头样式                       | `"default" \| "filled"`                                               | `default` |
+| arrowPosition         | 箭头位置                       | `"start" \| "end"`                                                    | `start` |
+| popupProps            | 弹层属性（不含 title/visible） | `PopupContainerProps`                                                 | -      |
+| datePickerViewProps   | 日期面板属性                   | `DatePickerViewProps`                                                 | -      |
 
-其余属性继承 `antd-mobile` 的 `PopupProps`。
+其余属性继承 `DatePicker` 的能力（例如 `min`、`max`、`precision`、`safeArea` 等）。

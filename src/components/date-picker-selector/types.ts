@@ -4,10 +4,21 @@ import { DatePickerProps } from "../date-picker/types"
 import { PickerSelectorTriggerProps } from "../picker-selector"
 import { PopupContainerProps } from "../popup-container"
 
+type TriggerProps = Pick<
+    PickerSelectorTriggerProps,
+    | "className"
+    | "placeholderClassName"
+    | "selectedValueClassName"
+    | "arrowStyle"
+    | "arrowPosition"
+    | "editable"
+    | "placeholder"
+    | "icon"
+>
+
 export interface DatePickerSelectorProps
-    extends PopupContainerProps,
-        Omit<DatePickerProps, "value" | "onChange">,
-        Omit<PickerSelectorTriggerProps, "onClick"> {
+    extends TriggerProps,
+        Omit<DatePickerProps, "className" | "value" | "onChange" | "visible"> {
     popupProps?: Omit<PopupContainerProps, "title" | "visible" | "onCancel">
     value?: PickerDate
     onChange?: (

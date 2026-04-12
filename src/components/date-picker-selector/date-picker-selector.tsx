@@ -2,7 +2,7 @@ import "./date-picker-selector.less"
 
 import { PickerDate } from "antd-mobile/es/components/date-picker/util"
 import classNames from "classnames"
-import React, { useMemo, useState } from "react"
+import React, { useEffect, useMemo, useState } from "react"
 
 import { getPrefixCls } from "@/utils"
 
@@ -24,11 +24,18 @@ const DatePickerSelector: React.FC<DatePickerSelectorProps> = ({
     icon,
     value,
     editable = true,
+    placeholder,
     defaultValue,
+    datePickerViewProps,
     onChange,
+    ...restDatePickerProps
 }) => {
     const [visible, setVisible] = useState(false)
-    const [curValue, setCurValue] = useState<PickerDate>()
+    const [curValue, setCurValue] = useState<PickerDate | undefined>(value)
+
+    useEffect(() => {
+        setCurValue(value)
+    }, [value])
 
     const mergedValue = useMemo(() => {
         return curValue ?? value ?? defaultValue
@@ -42,6 +49,7 @@ const DatePickerSelector: React.FC<DatePickerSelectorProps> = ({
             arrowStyle={arrowStyle}
             arrowPosition={arrowPosition}
             editable={editable}
+            placeholder={placeholder}
             selectedValueDisplay={mergedValue?.toLocaleDateString()}
             icon={
                 icon ?? <IconCalendarOutlined className={`${prefixCls}-icon`} />
@@ -49,10 +57,12 @@ const DatePickerSelector: React.FC<DatePickerSelectorProps> = ({
             onClick={() => setVisible(true)}
         >
             <DatePicker
+                {...restDatePickerProps}
                 {...popupProps}
                 title={title}
                 visible={visible}
                 defaultValue={defaultValue}
+                datePickerViewProps={datePickerViewProps}
                 value={mergedValue}
                 onChange={(value, extendedValue) => {
                     setCurValue(value)
