@@ -22,6 +22,10 @@ const Basic = () => {
                 ],
             },
         },
+        birthday: {
+            label: "生日",
+            fieldType: "datePicker",
+        },
         email: {
             label: "邮箱",
             fieldType: "textArea",

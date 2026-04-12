@@ -46,6 +46,18 @@ export const galleryComponents: GalleryComponentItem[] = [
         ],
     },
     {
+        key: "date-picker-selector",
+        title: "DatePickerSelector 时间选择器",
+        route: "/gallery/component.html?component=date-picker-selector",
+        demos: [
+            {
+                key: "demo1",
+                title: "基础用法",
+                path: "/~demos/src-components-date-picker-selector-demo-basic",
+            },
+        ],
+    },
+    {
         key: "editable-form",
         title: "EditableForm 可编辑表单",
         route: "/gallery/component.html?component=editable-form",

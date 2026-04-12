@@ -6,7 +6,7 @@ import React, { PropsWithChildren, useMemo } from "react"
 import { NOOP_TEXT } from "@/constants"
 import { getPrefixCls } from "@/utils"
 
-import { useEditableFormContext } from "../editable-form"
+import { useEditableFormContext } from "../editable-form/context"
 import IconArrowFulfilled from "../icons/arrow-fulfilled"
 import IconArrowOutlined from "../icons/arrow-outlined"
 import { PickerSelectorTriggerProps } from "./types"

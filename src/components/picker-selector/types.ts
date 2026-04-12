@@ -5,7 +5,7 @@ export interface PickerSelectorTriggerProps {
     className?: string
     placeholderClassName?: string
     selectedValueClassName?: string
-    arrowStyle?: "default" | "outlined"
+    arrowStyle?: "default" | "filled"
     arrowPosition?: "start" | "end"
     editable?: boolean
     selectedValueDisplay?: React.ReactNode
