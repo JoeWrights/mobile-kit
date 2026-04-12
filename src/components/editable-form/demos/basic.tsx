@@ -12,6 +12,16 @@ const Basic = () => {
             label: "年龄",
             fieldType: "input",
         },
+        gender: {
+            label: "性别",
+            fieldType: "select",
+            compProps: {
+                options: [
+                    { label: "男", value: "male" },
+                    { label: "女", value: "female" },
+                ],
+            },
+        },
         email: {
             label: "邮箱",
             fieldType: "textArea",

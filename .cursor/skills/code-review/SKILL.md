@@ -118,7 +118,7 @@ git diff <base-branch>...HEAD -- . $EXCLUDE
 -   **类型导出完整性**：Props 类型和公共类型是否从 `index.ts` 导出，供使用者引用；泛型默认值是否合理（优先用 `Record<string, unknown>` 替代 `Record<string, any>`）
 -   **易用性**：API 命名是否符合 [antd 命名规则](https://github.com/ant-design/ant-design/wiki/API-Naming-rules)，是否适当处理边界情况降低使用者心智负担
 -   **样式可覆盖性**：
-    -   是否使用 `getPrefixCls('component-name')` 生成根类名（定义在 `src/utils/index.ts`，前缀为 `hg-info-ui-kit-mobile-`）
+    -   是否使用 `getPrefixCls('component-name')` 生成根类名（定义在 `src/utils/index.ts`，前缀为 `mk-`）
     -   子元素类名是否严格遵循 BEM 规范：Block 为根类名（由 `getPrefixCls` 生成），Element 以 `__element` 命名，Modifier 以 `--modifier` 命名，在 Less 中通过 `&__element`、`&--modifier` 嵌套（而非硬编码独立类名）
     -   Less 中是否使用 `@prefixCls` 拼接组件样式、`@antPrefixCls` 拼接 antd 覆盖样式（变量定义在 `src/styles/variables.less`）
     -   是否避免了 CSS Module（项目约定不使用，方便业务系统覆盖）

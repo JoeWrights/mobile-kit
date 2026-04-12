@@ -14,6 +14,7 @@ const Basic = () => {
                     { label: "选项1", value: "1" },
                     { label: "选项2", value: "2" },
                 ]}
+                arrowStyle="outlined"
                 onChange={(value) => {
                     console.log(value)
                     setValue(value)

@@ -1,0 +1,32 @@
+@import "../../styles/index.less";
+@import "../../components/editable-form/form.less";
+
+.@{prefixCls}-picker-selector-trigger {
+	.picker-selector-selected-wrapper {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		cursor: pointer;
+		user-select: none;
+
+		.picker-selector-selected-val {
+			font-size: var(--mk-form-item-value-font-size);
+			color: var(--mk-form-item-value-color);
+
+			&-readonly {
+				cursor: default;
+			}
+
+			&-placeholder {
+				font-size: var(--mk-form-item-placeholder-font-size);
+				color: var(--mk-form-item-placeholder-color);
+			}
+		}
+
+		.icon-arrow {
+			width: 20px;
+			height: 20px;
+			color: var(--mk-form-item-icon-color);
+		}
+	}
+}

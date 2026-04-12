@@ -40,7 +40,7 @@ const Picker: React.FC<PickerProps> = ({
         if (!isNil(selectedValue)) {
             confirmed = selectedValue
         } else if (value) {
-            confirmed = Array.isArray(value) ? value : [value]
+            confirmed = value
         }
         onChange?.(confirmed)
     }, [onChange, selectedValue, value])

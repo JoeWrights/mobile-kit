@@ -3,12 +3,12 @@ import "./picker-selector.less"
 import classNames from "classnames"
 import React, { useEffect, useMemo, useState } from "react"
 
-import { NOOP_TEXT } from "@/constants"
 import { getPrefixCls } from "@/utils"
 
 import { useEditableFormContext } from "../editable-form/context"
 import Picker from "../picker/picker"
 import { PickerValueUnion } from "../picker/types"
+import PickerSelectorTrigger from "./picker-selector-trigger"
 import { PickerSelectorProps } from "./types"
 
 const prefixCls = getPrefixCls("picker-selector")
@@ -27,11 +27,7 @@ const PickerSelector: React.FC<PickerSelectorProps> = ({
     onChange,
     filterOption,
 }) => {
-    const {
-        formRef,
-        selectorArrowPosition,
-        selectorArrowStyle,
-    } = useEditableFormContext()
+    const { formRef } = useEditableFormContext()
 
     const [visible, setVisible] = useState(false)
     const [curValue, setCurValue] = useState<PickerValueUnion | undefined>(
@@ -45,14 +41,6 @@ const PickerSelector: React.FC<PickerSelectorProps> = ({
         return options
     }, [filterOption, options, formRef])
 
-    const mergedArrowPosition = useMemo(() => {
-        return arrowPosition || selectorArrowPosition || "start"
-    }, [arrowPosition, selectorArrowPosition])
-
-    const mergedArrowStyle = useMemo(() => {
-        return arrowStyle || selectorArrowStyle || "default"
-    }, [arrowStyle, selectorArrowStyle])
-
     const selectedValueLabel = useMemo(() => {
         return options.find((option) => option.value === curValue)?.label
     }, [curValue, options])
@@ -61,47 +49,17 @@ const PickerSelector: React.FC<PickerSelectorProps> = ({
         setCurValue(value)
     }, [value])
 
-    if (!editable) {
-        return (
-            <div className={classNames(prefixCls, className)}>
-                <div className={classNames("picker-selector-selected-wrapper")}>
-                    <div
-                        className={classNames(
-                            "picker-selector-selected-val-readonly",
-                            selectedValueClassName,
-                        )}
-                    >
-                        {selectedValueLabel ?? NOOP_TEXT}
-                    </div>
-                </div>
-            </div>
-        )
-    }
-
     return (
-        <div className={classNames(prefixCls, className)}>
-            <div
-                className={classNames("picker-selector-selected-wrapper", {
-                    "arrow-position-start": mergedArrowPosition === "start",
-                    "arrow-position-end": mergedArrowPosition === "end",
-                })}
-                onClick={() => setVisible(true)}
-            >
-                <div
-                    className={classNames(
-                        "picker-selector-selected-val",
-                        selectedValueClassName,
-                        !selectedValueLabel &&
-                            classNames(
-                                "picker-selector-selected-val-placeholder",
-                                placeholderClassName,
-                            ),
-                    )}
-                >
-                    {selectedValueLabel ?? "请选择"}
-                </div>
-            </div>
-
+        <PickerSelectorTrigger
+            className={classNames(prefixCls, className)}
+            placeholderClassName={placeholderClassName}
+            selectedValueClassName={selectedValueClassName}
+            arrowStyle={arrowStyle}
+            arrowPosition={arrowPosition}
+            editable={editable}
+            selectedValueDisplay={selectedValueLabel}
+            onClick={() => setVisible(true)}
+        >
             <Picker
                 bodyStyle={{ minHeight: "35vh" }}
                 {...popupProps}
@@ -116,7 +74,7 @@ const PickerSelector: React.FC<PickerSelectorProps> = ({
                 }}
                 onCancel={() => setVisible(false)}
             />
-        </div>
+        </PickerSelectorTrigger>
     )
 }
 
