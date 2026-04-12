@@ -10,6 +10,7 @@ export interface PickerSelectorTriggerProps {
     editable?: boolean
     selectedValueDisplay?: React.ReactNode
     placeholder?: string
+    icon?: React.ReactNode
     onClick?: () => void
 }
 

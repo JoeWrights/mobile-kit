@@ -1,4 +1,5 @@
 export * from "./components/button"
+export * from "./components/date-picker"
 export * from "./components/editable-form"
 export * from "./components/picker"
 export * from "./components/picker-selector"

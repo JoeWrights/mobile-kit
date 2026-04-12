@@ -23,6 +23,7 @@ const PickerSelector: React.FC<PickerSelectorProps> = ({
     arrowPosition,
     editable = true,
     value,
+    icon,
     options,
     onChange,
     filterOption,
@@ -58,6 +59,7 @@ const PickerSelector: React.FC<PickerSelectorProps> = ({
             arrowPosition={arrowPosition}
             editable={editable}
             selectedValueDisplay={selectedValueLabel}
+            icon={icon}
             onClick={() => setVisible(true)}
         >
             <Picker

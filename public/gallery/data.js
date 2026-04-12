@@ -18,6 +18,18 @@ window.GALLERY_COMPONENTS = [
         ],
     },
     {
+        key: "date-picker",
+        title: "DatePicker 时间选择器",
+        route: "/gallery/component.html?component=date-picker",
+        demos: [
+            {
+                key: "demo1",
+                title: "基础用法",
+                path: "/~demos/src-components-date-picker-demo-basic",
+            },
+        ],
+    },
+    {
         key: "editable-form",
         title: "EditableForm 可编辑表单",
         route: "/gallery/component.html?component=editable-form",

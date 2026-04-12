@@ -23,6 +23,7 @@ const PickerSelectorTrigger: React.FC<PropsWithChildren<
     arrowPosition,
     editable = true,
     selectedValueDisplay,
+    icon,
     placeholder = "请选择",
     children,
     onClick,
@@ -79,11 +80,12 @@ const PickerSelectorTrigger: React.FC<PropsWithChildren<
                 >
                     {selectedValueDisplay ?? placeholder}
                 </div>
-                {mergedArrowStyle === "default" ? (
-                    <IconArrowOutlined className="icon-arrow outlined" />
-                ) : (
-                    <IconArrowFulfilled className="icon-arrow filled" />
-                )}
+                {icon ??
+                    (mergedArrowStyle === "default" ? (
+                        <IconArrowOutlined className="icon-arrow outlined" />
+                    ) : (
+                        <IconArrowFulfilled className="icon-arrow filled" />
+                    ))}
             </div>
             {children}
         </div>
