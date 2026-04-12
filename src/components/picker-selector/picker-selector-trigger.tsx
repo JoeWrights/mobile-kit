@@ -80,9 +80,9 @@ const PickerSelectorTrigger: React.FC<PropsWithChildren<
                     {selectedValueDisplay ?? placeholder}
                 </div>
                 {mergedArrowStyle === "default" ? (
-                    <IconArrowFulfilled className="icon-arrow" />
+                    <IconArrowOutlined className="icon-arrow outlined" />
                 ) : (
-                    <IconArrowOutlined className="icon-arrow" />
+                    <IconArrowFulfilled className="icon-arrow filled" />
                 )}
             </div>
             {children}

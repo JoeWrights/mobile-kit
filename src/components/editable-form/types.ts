@@ -161,11 +161,11 @@ export interface EditableFormProps<T = any>
     selectorArrowPosition?: "start" | "end"
     /**
      * 选择器箭头的风格
-     * @description 设置为 "default" 时，选择器箭头为默认风格
-     * @description 设置为 "outlined" 时，选择器箭头为镂空风格
+     * @description 设置为 "default" 时，选择器箭头为线性风格
+     * @description 设置为 "filled" 时，选择器箭头为填充风格
      * @default "default"
      */
-    selectorArrowStyle?: "default" | "outlined"
+    selectorArrowStyle?: "default" | "filled"
     /**
      * 是否去掉最后一个组内表单项的底部内边距
      * @description 设置为 true 时，不会去掉最后一个组内表单项的底部内边距
