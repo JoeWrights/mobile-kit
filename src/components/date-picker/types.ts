@@ -14,4 +14,5 @@ export interface DatePickerProps
         value?: PickerDate,
         extendedValue?: Record<string, unknown>,
     ) => void
+    datePickerViewProps?: Omit<DatePickerViewProps, "value" | "onChange">
 }

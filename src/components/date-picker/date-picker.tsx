@@ -23,6 +23,7 @@ const DatePicker: React.FC<DatePickerProps> = ({
     className,
     visible,
     onCancel,
+    datePickerViewProps,
     ...props
 }) => {
     const [selectedValue, setSelectedValue] = useState<PickerDate>()
@@ -49,14 +50,16 @@ const DatePicker: React.FC<DatePickerProps> = ({
             visible={visible}
             onCancel={onCancel}
             onConfirm={() => onChange?.(confirmedValue)}
-            afterClose={() => setSelectedValue(undefined)}
         >
             <DatePickerView
-                {...props}
+                {...datePickerViewProps}
                 defaultValue={mergedDefaultValue}
                 mouseWheel
                 value={confirmedValue}
-                className={`${prefixCls}__picker-view`}
+                className={classNames(
+                    `${prefixCls}__picker-view`,
+                    datePickerViewProps?.className,
+                )}
                 onChange={(val) => setSelectedValue(val)}
             />
         </PopupContainer>
