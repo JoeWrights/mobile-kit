@@ -14,19 +14,38 @@ export interface PickerSelectorTriggerProps {
     onClick?: () => void
 }
 
-export interface PickerSelectorProps
+interface PickerSelectorCommonProps
     extends PopupContainerProps,
         Omit<PickerSelectorTriggerProps, "onClick"> {
     title?: string
     popupProps?: Omit<PopupContainerProps, "title" | "visible" | "onCancel">
-    value?: PickerValue | PickerValue[]
+}
+
+export interface PickerSelectorSingleProps extends PickerSelectorCommonProps {
+    multiple?: false
+    value?: PickerValue
     options: PickerOption[]
-    onChange?: (
-        value: PickerValue | PickerValue[],
-        extendedValue?: Record<string, any>,
-    ) => void
+    onChange?: (value: PickerValue, extendedValue?: Record<string, any>) => void
     filterOption?: (
         options: PickerOption[],
         formValues: Record<string, any>,
     ) => PickerOption[]
 }
+
+export interface PickerSelectorMultipleProps extends PickerSelectorCommonProps {
+    multiple: true
+    value?: PickerValue[]
+    options: PickerOption[][]
+    onChange?: (
+        value: PickerValue[],
+        extendedValue?: Record<string, any>,
+    ) => void
+    filterOption?: (
+        options: PickerOption[][],
+        formValues: Record<string, any>,
+    ) => PickerOption[][]
+}
+
+export type PickerSelectorProps =
+    | PickerSelectorSingleProps
+    | PickerSelectorMultipleProps

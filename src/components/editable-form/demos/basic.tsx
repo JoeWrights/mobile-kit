@@ -22,6 +22,23 @@ const Basic = () => {
                 ],
             },
         },
+        city: {
+            label: "城市",
+            fieldType: "select",
+            compProps: {
+                multiple: true,
+                options: [
+                    [
+                        { label: "北京", value: "beijing" },
+                        { label: "上海", value: "shanghai" },
+                    ],
+                    [
+                        { label: "杭州", value: "hangzhou" },
+                        { label: "宁波", value: "ningbo" },
+                    ],
+                ],
+            },
+        },
         birthday: {
             label: "生日",
             fieldType: "datePicker",

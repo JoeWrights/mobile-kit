@@ -1,6 +1,7 @@
 import "./picker-selector.less"
 
 import classNames from "classnames"
+import { isNil } from "lodash-es"
 import React, { useEffect, useMemo, useState } from "react"
 
 import { getPrefixCls } from "@/utils"
@@ -13,69 +14,101 @@ import { PickerSelectorProps } from "./types"
 
 const prefixCls = getPrefixCls("picker-selector")
 
-const PickerSelector: React.FC<PickerSelectorProps> = ({
-    title,
-    className,
-    placeholderClassName,
-    selectedValueClassName,
-    popupProps,
-    arrowStyle,
-    arrowPosition,
-    editable = true,
-    value,
-    icon,
-    options,
-    onChange,
-    filterOption,
-}) => {
+const PickerSelector: React.FC<PickerSelectorProps> = (props) => {
     const { formRef } = useEditableFormContext()
+    const editable = props.editable ?? true
+    const { multiple, filterOption, options } = props
 
     const [visible, setVisible] = useState(false)
     const [curValue, setCurValue] = useState<PickerValueUnion | undefined>(
-        value,
+        props.value,
     )
 
-    const mergedOptions = useMemo(() => {
-        if (filterOption) {
-            return filterOption(options, formRef?.getFieldsValue() || {})
-        }
-        return options
-    }, [filterOption, options, formRef])
+    const mergedSingleOptions = useMemo(() => {
+        if (multiple) return []
+
+        const formValues = formRef?.getFieldsValue() || {}
+        return filterOption ? filterOption(options, formValues) : options
+    }, [filterOption, formRef, multiple, options])
+
+    const mergedMultipleOptions = useMemo(() => {
+        if (!multiple) return []
+
+        const formValues = formRef?.getFieldsValue() || {}
+        return filterOption ? filterOption(options, formValues) : options
+    }, [filterOption, formRef, multiple, options])
 
     const selectedValueLabel = useMemo(() => {
-        return options.find((option) => option.value === curValue)?.label
-    }, [curValue, options])
+        if (multiple) {
+            if (!Array.isArray(curValue)) return
+            const selectedLabels = curValue
+                .map((value, index) => {
+                    const columnOptions = mergedMultipleOptions[index]
+                    return columnOptions?.find(
+                        (option) => option.value === value,
+                    )?.label
+                })
+                .filter((label): label is string => !isNil(label))
+
+            return selectedLabels.length > 0
+                ? selectedLabels.join(" / ")
+                : undefined
+        }
+
+        if (Array.isArray(curValue)) return
+
+        return mergedSingleOptions.find((option) => option.value === curValue)
+            ?.label
+    }, [curValue, mergedMultipleOptions, mergedSingleOptions, multiple])
 
     useEffect(() => {
-        setCurValue(value)
-    }, [value])
+        setCurValue(props.value)
+    }, [props.value])
 
     return (
         <PickerSelectorTrigger
-            className={classNames(prefixCls, className)}
-            placeholderClassName={placeholderClassName}
-            selectedValueClassName={selectedValueClassName}
-            arrowStyle={arrowStyle}
-            arrowPosition={arrowPosition}
+            className={classNames(prefixCls, props.className)}
+            placeholderClassName={props.placeholderClassName}
+            selectedValueClassName={props.selectedValueClassName}
+            arrowStyle={props.arrowStyle}
+            arrowPosition={props.arrowPosition}
             editable={editable}
             selectedValueDisplay={selectedValueLabel}
-            icon={icon}
+            icon={props.icon}
             onClick={() => setVisible(true)}
         >
-            <Picker
-                bodyStyle={{ minHeight: "35vh" }}
-                {...popupProps}
-                title={title}
-                visible={visible}
-                value={curValue}
-                options={mergedOptions}
-                onChange={(value, extendedValue) => {
-                    setCurValue(value)
-                    onChange?.(value, extendedValue)
-                    setVisible(false)
-                }}
-                onCancel={() => setVisible(false)}
-            />
+            {multiple ? (
+                <Picker
+                    bodyStyle={{ minHeight: "35vh" }}
+                    {...props.popupProps}
+                    title={props.title}
+                    visible={visible}
+                    multiple
+                    value={Array.isArray(curValue) ? curValue : undefined}
+                    options={mergedMultipleOptions}
+                    onChange={(value, extendedValue) => {
+                        setCurValue(value)
+                        props.onChange?.(value, extendedValue)
+                        setVisible(false)
+                    }}
+                    onCancel={() => setVisible(false)}
+                />
+            ) : (
+                <Picker
+                    bodyStyle={{ minHeight: "35vh" }}
+                    {...props.popupProps}
+                    title={props.title}
+                    visible={visible}
+                    value={Array.isArray(curValue) ? undefined : curValue}
+                    options={mergedSingleOptions}
+                    onChange={(value, extendedValue) => {
+                        setCurValue(value)
+                        props.onChange?.(value, extendedValue)
+                        setVisible(false)
+                    }}
+                    onCancel={() => setVisible(false)}
+                />
+            )}
         </PickerSelectorTrigger>
     )
 }
