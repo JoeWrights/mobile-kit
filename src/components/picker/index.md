@@ -6,6 +6,12 @@
 
 <code src="./demos/basic.tsx"></code>
 
+## 多列选择
+
+通过设置 `multiple=true`，`options` 需传入二维数组，并且 `value/onChange` 会变为数组类型。
+
+<code src="./demos/basic.tsx"></code>
+
 ## API
 
 | 参数     | 说明                             | 类型      | 默认值 |

@@ -3,56 +3,48 @@
 import "./picker.less"
 
 import { PickerView } from "antd-mobile"
-import { isNil } from "lodash-es"
-import React, { useCallback, useEffect, useMemo, useState } from "react"
+import React, { useEffect, useState } from "react"
 
 import { getPrefixCls } from "@/utils"
 
 import { PopupContainer } from "../popup-container"
-import { PickerProps, PickerValue } from "./types"
+import {
+    PickerMultipleProps,
+    PickerProps,
+    PickerSingleProps,
+    PickerValue,
+} from "./types"
 
 const prefixCls = getPrefixCls("picker")
 
-const Picker: React.FC<PickerProps> = ({
-    value,
-    visible,
-    options = [],
-    title,
-    pickerViewProps,
-    onCancel,
-    onChange,
-    ...props
-}) => {
-    const [selectedValue, setSelectedValue] = useState<PickerValue>(null)
+const renderMultiplePicker = (
+    props: PickerMultipleProps,
+    selectedValue: PickerValue[] | null,
+    setSelectedValue: React.Dispatch<
+        React.SetStateAction<PickerValue[] | null>
+    >,
+) => {
+    const {
+        value,
+        visible,
+        options,
+        title,
+        pickerViewProps,
+        onCancel,
+        onChange,
+        ...popupProps
+    } = props
 
-    const displayValue = useMemo(() => {
-        let val: PickerValue[] | undefined = undefined
-        if (!isNil(selectedValue)) {
-            val = [selectedValue]
-        } else if (value) {
-            val = Array.isArray(value) ? value : [value]
-        }
-        return val
-    }, [selectedValue, value])
-
-    const handleConfirm = useCallback(() => {
-        let confirmed: PickerValue | PickerValue[] = null
-        if (!isNil(selectedValue)) {
-            confirmed = selectedValue
-        } else if (value) {
-            confirmed = value
-        }
+    const displayValue = selectedValue ?? value
+    const displayOptions = options ?? []
+    const handleConfirm = () => {
+        const confirmed = selectedValue ?? value ?? []
         onChange?.(confirmed)
-    }, [onChange, selectedValue, value])
-
-    useEffect(() => {
-        if (!visible) return
-        setSelectedValue(null)
-    }, [visible])
+    }
 
     return (
         <PopupContainer
-            {...props}
+            {...popupProps}
             className={prefixCls}
             contentClassName={`${prefixCls}__content`}
             visible={visible}
@@ -64,13 +56,80 @@ const Picker: React.FC<PickerProps> = ({
                 <PickerView
                     mouseWheel
                     {...pickerViewProps}
-                    columns={[options]}
-                    onChange={(val) => setSelectedValue(val?.[0])}
+                    columns={displayOptions}
+                    onChange={setSelectedValue}
                     value={displayValue}
                 />
             </div>
         </PopupContainer>
     )
+}
+
+const renderSinglePicker = (
+    props: PickerSingleProps,
+    selectedValue: PickerValue[] | null,
+    setSelectedValue: React.Dispatch<
+        React.SetStateAction<PickerValue[] | null>
+    >,
+) => {
+    const {
+        value,
+        visible,
+        options,
+        title,
+        pickerViewProps,
+        onCancel,
+        onChange,
+        ...popupProps
+    } = props
+
+    const displayValue =
+        selectedValue ??
+        (value === null || value === undefined ? undefined : [value])
+    const displayOptions = [options ?? []]
+    const handleConfirm = () => {
+        const confirmed = selectedValue?.[0] ?? value ?? null
+        onChange?.(confirmed)
+    }
+
+    return (
+        <PopupContainer
+            {...popupProps}
+            className={prefixCls}
+            contentClassName={`${prefixCls}__content`}
+            visible={visible}
+            title={title}
+            onCancel={onCancel}
+            onConfirm={handleConfirm}
+        >
+            <div className={`${prefixCls}__view`}>
+                <PickerView
+                    mouseWheel
+                    {...pickerViewProps}
+                    columns={displayOptions}
+                    onChange={setSelectedValue}
+                    value={displayValue}
+                />
+            </div>
+        </PopupContainer>
+    )
+}
+
+const Picker: React.FC<PickerProps> = (props) => {
+    const [selectedValue, setSelectedValue] = useState<PickerValue[] | null>(
+        null,
+    )
+
+    useEffect(() => {
+        if (!props.visible) return
+        setSelectedValue(null)
+    }, [props.visible])
+
+    if (props.multiple) {
+        return renderMultiplePicker(props, selectedValue, setSelectedValue)
+    }
+
+    return renderSinglePicker(props, selectedValue, setSelectedValue)
 }
 
 export default Picker
